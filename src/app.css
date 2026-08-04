@@ -1,0 +1,131 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+*, *::before, *::after {
+    transition-property: color, background-color, border-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
+
+p {
+    margin-bottom: 1rem;
+
+}
+
+@theme {
+    --color-bg: #FFFDF5;
+    --color-text: #000000;
+    --color-border: #000000;
+    --color-shadow: #000000;
+
+    --shadow-sm: 3px 3px 0 0 var(--color-shadow);
+    --shadow: 5px 5px 0 0 var(--color-shadow);
+    --shadow-lg: 8px 8px 0 0 var(--color-shadow);
+
+    --color-yellow: #FFD23F;
+    --color-pink: #FF6B6B;
+    --color-blue: #74B9FF;
+}
+
+.dark {
+    --color-bg: #1A1A1A;
+    --color-text: #FFFDF5;
+    --color-border: #FFFDF5;
+    --color-shadow: #FFFDF5;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+h1 {
+    font-family: 'Syne', sans-serif;
+}
+
+h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    margin-bottom: 1rem;
+}
+
+.btn {
+    border: 3px solid var(--color-border);
+    border-radius: 0;
+    box-shadow: 5px 5px 0 0 var(--color-shadow);
+    color: #000;
+    padding: 0.5rem 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+
+.btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0 0 var(--color-shadow);
+}
+
+.btn:active {
+    transform: translate(3px, 3px);
+    box-shadow: none;
+}
+
+.btn:focus-visible {
+    outline: 3px solid var(--color-blue);
+    outline-offset: 3px;
+}
+
+.btn-sm {
+    border: 1px solid var(--color-border);
+    border-radius: 0;
+    box-shadow: 3px 3px 0 0 var(--color-shadow);
+    color: #000;
+    font-weight: 400;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+
+.btn-sm:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 0 var(--color-shadow);
+}
+
+.btn-sm:active {
+    transform: translate(3px, 3px);
+    box-shadow: none;
+}
+
+.btn-sm:focus-visible {
+    outline: 3px solid var(--color-blue);
+    outline-offset: 3px;
+}
+
+.card {
+    border: 3px solid var(--color-border);;
+    box-shadow: 5px 5px 0 0 var(--color-shadow);
+    padding: 1.5rem;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0 0 var(--color-shadow);
+}
