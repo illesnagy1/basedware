@@ -61,67 +61,69 @@ h2 {
     margin-bottom: 1rem;
 }
 
-.btn {
-    border: 3px solid var(--color-border);
-    border-radius: 0;
-    box-shadow: 5px 5px 0 0 var(--color-shadow);
-    color: var(--color-text);
-    background-color: var(--color-bg);
-    padding: 0.5rem 1rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: transform 0.1s ease, box-shadow 0.1s ease;
-}
+@layer components {
+    .btn {
+        border: 3px solid var(--color-border);
+        border-radius: 0;
+        box-shadow: 5px 5px 0 0 var(--color-shadow);
+        color: var(--color-black);
+        background-color: var(--color-bg);
+        padding: 0.5rem 1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
 
-.btn:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 7px 7px 0 0 var(--color-shadow);
-}
+    .btn:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 7px 7px 0 0 var(--color-shadow);
+    }
 
-.btn:active {
-    transform: translate(3px, 3px);
-    box-shadow: none;
-}
+    .btn:active {
+        transform: translate(3px, 3px);
+        box-shadow: none;
+    }
 
-.btn:focus-visible {
-    outline: 3px solid var(--color-blue);
-    outline-offset: 3px;
-}
+    .btn:focus-visible {
+        outline: 3px solid var(--color-blue);
+        outline-offset: 3px;
+    }
 
-.btn-sm {
-    border: 1px solid var(--color-border);
-    border-radius: 0;
-    box-shadow: 3px 3px 0 0 var(--color-shadow);
-    color: var(--color-text);
-    background-color: var(--color-bg);
-    font-weight: 400;
-    cursor: pointer;
-    transition: transform 0.1s ease, box-shadow 0.1s ease;
-}
+    .btn-sm {
+        border: 1px solid var(--color-border);
+        border-radius: 0;
+        box-shadow: 3px 3px 0 0 var(--color-shadow);
+        color: var(--color-black);
+        background-color: var(--color-bg);
+        font-weight: 400;
+        cursor: pointer;
+        transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
 
-.btn-sm:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 5px 5px 0 0 var(--color-shadow);
-}
+    .btn-sm:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 5px 5px 0 0 var(--color-shadow);
+    }
 
-.btn-sm:active {
-    transform: translate(3px, 3px);
-    box-shadow: none;
-}
+    .btn-sm:active {
+        transform: translate(3px, 3px);
+        box-shadow: none;
+    }
 
-.btn-sm:focus-visible {
-    outline: 3px solid var(--color-blue);
-    outline-offset: 3px;
-}
+    .btn-sm:focus-visible {
+        outline: 3px solid var(--color-blue);
+        outline-offset: 3px;
+    }
 
-.card {
-    border: 3px solid var(--color-border);
-    box-shadow: 5px 5px 0 0 var(--color-shadow);
-    padding: 1.5rem;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
+    .card {
+        border: 3px solid var(--color-border);
+        box-shadow: 5px 5px 0 0 var(--color-shadow);
+        padding: 1.5rem;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
 
-.card:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 7px 7px 0 0 var(--color-shadow);
+    .card:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 7px 7px 0 0 var(--color-shadow);
+    }
 }
