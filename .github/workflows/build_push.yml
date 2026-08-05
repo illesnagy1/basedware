@@ -4,6 +4,7 @@ on:
   push:
     tags:
       - 'v*'
+
 jobs:
   build-push-and-sync:
     runs-on: ubuntu-latest
@@ -40,21 +41,25 @@ jobs:
             ${{ secrets.HARBOR_URL }}/${{ secrets.HARBOR_PROJECT }}/based-webapp:latest
             ${{ secrets.HARBOR_URL }}/${{ secrets.HARBOR_PROJECT }}/based-webapp:${{ steps.get_version.outputs.VERSION }}
 
-      - name: Update Helm Chart
+      - name: Clone Helm repo
+        uses: actions/checkout@v7
+        with:
+          repository: valkosch/helm-charts
+          token: ${{ secrets.HELM_REPO_PAT }}
+          path: helm-repo
+
+      - name: Update Helm values
         env:
           NEW_VERSION: ${{ steps.get_version.outputs.VERSION }}
-          HELM_REPO_PAT: ${{ secrets.HELM_REPO_PAT }}
-          HELM_REPO_URL: github.com/valkosch/helm-charts
-          VALUES_FILE_PATH: ./based-helm/values.yaml
+          VALUES_FILE_PATH: based-helm/values.yaml
         run: |
-          git clone https://x-access-token:${HELM_REPO_PAT}@${HELM_REPO_URL} helm-repo
           cd helm-repo
 
           git config user.name "Semantic Release Bot"
           git config user.email "bot@example.com"
 
-          sed -i "s/tag: .*/tag: \"$NEW_VERSION\"/" $VALUES_FILE_PATH
+          yq -i '.image.tag = strenv(NEW_VERSION)' "$VALUES_FILE_PATH"
 
-          git add $VALUES_FILE_PATH
+          git add "$VALUES_FILE_PATH"
           git commit -m "chore(release): update image tag to $NEW_VERSION [skip ci]"
           git push
