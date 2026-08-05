@@ -1,3 +1,11 @@
+<svelte:head>
+    <title>ALTERCOM.</title>
+    <meta
+        name="description"
+        content="A brief summary on why I started to transfer my digital life into decentralized and open platforms."
+    />
+</svelte:head>
+
 <div
     class="flex flex-row justify-center min-h-screen min-w-full bg-rose-500 text-black border-b-5 border-black dark:border-white"
 >
