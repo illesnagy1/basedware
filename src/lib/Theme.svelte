@@ -4,7 +4,6 @@
     const media = () => window.matchMedia('(prefers-color-scheme: dark)')
 
     let dark = $state(false)
-    let hidden = $state(true)
 
     function apply(value: boolean) {
         dark = value
@@ -23,7 +22,6 @@
 
     onMount(() => {
         dark = document.documentElement.classList.contains('dark')
-        hidden = false
 
         const matcher = media()
         const handleChange = ({ matches }: MediaQueryListEvent) => {
@@ -47,7 +45,6 @@
 
 <button
     class="btn-sm w-6 h-6 p-0 m-4 hover:bg-yellow"
-    class:hidden
     onclick={() => setMode(!dark)}
     title="Toggle theme"
 >
