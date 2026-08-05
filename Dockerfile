@@ -16,11 +16,11 @@ COPY . .
 RUN bun run build
 
 FROM base AS release
-COPY --from=install /temp/prod/node_modules node_modules
-COPY --from=prerelease /usr/src/app/build .
-COPY --from=prerelease /usr/src/app/package.json .
+COPY --from=install --chown=bun:bun /temp/prod/node_modules node_modules
+COPY --from=prerelease --chown=bun:bun /usr/src/app/build .
+COPY --from=prerelease --chown=bun:bun /usr/src/app/package.json .
 
 USER bun
 EXPOSE 3000/tcp
 ENV PORT=3000
-ENTRYPOINT [ "bun", "index.js"]
+ENTRYPOINT [ "bun", "index.js" ]
