@@ -1,6 +1,3 @@
-<script lang="ts">
-</script>
-
 <div
     class="flex flex-row justify-center min-h-screen min-w-full bg-rose-500 text-black border-b-5 border-black dark:border-white"
 >
@@ -42,7 +39,7 @@
         <h2 id="privacy" class="text-5xl md:text-6xl">What is privacy?</h2>
         <div class="flex flex-col md:flex-row gap-4">
             <div class="contents md:flex md:flex-col md:basis-1/2">
-                <p class="order-1 md:order-none">
+                <p class="order-1 md:order-0">
                     <b>Privacy</b> is a human right. It can come in many forms,
                     but at its core it only means one thing:
                     <span
@@ -53,13 +50,13 @@
                     power by the state and other entities. Losing privacy means losing
                     control over a piece of your life.
                 </p>
-                <p class="order-3 md:order-none">
+                <p class="order-3 md:order-0">
                     Maybe you want to tell your mother how much you love her,
                     but not the government. <b
                         >That is your decision, and yours alone.</b
                     >
                 </p>
-                <p class="order-5 md:order-none">
+                <p class="order-5 md:order-0">
                     Privacy is essential for the development of the individual
                     and society. It is a right that is essential for the
                     protection of other human rights, such as <b
@@ -67,7 +64,7 @@
                         freedom of assembly</b
                     >.
                 </p>
-                <p class="order-7 md:order-none">
+                <p class="order-7 md:order-0">
                     Of course, ethics are not <span
                         class="bg-black text-white border-b-2 border-white px-1"
                         >black</span
@@ -85,7 +82,7 @@
             </div>
             <div class="contents md:flex md:flex-col md:basis-1/2 md:gap-4">
                 <div
-                    class="order-2 md:order-none card bg-yellow-300 mt-10 mb-5 text-black dark:bg-yellow-700 dark:text-white"
+                    class="order-2 md:order-0 card bg-yellow-300 mt-10 mb-5 text-black dark:bg-yellow-700 dark:text-white"
                 >
                     <button class="btn bg-pink mb-3"> circa 2013. </button>
                     <p>
@@ -100,7 +97,7 @@
                 </div>
 
                 <div
-                    class="order-4 md:order-none card bg-purple-300 mb-5 text-black dark:bg-purple-800 dark:text-white"
+                    class="order-4 md:order-0 card bg-purple-300 mb-5 text-black dark:bg-purple-800 dark:text-white"
                 >
                     <button class="btn bg-pink mb-3"> circa 2016. </button>
                     <p>
@@ -113,7 +110,7 @@
             </div>
         </div>
         <div
-            class="order-6 md:order-none card bg-emerald-300 mb-5 text-black dark:bg-emerald-800 dark:text-white"
+            class="order-6 md:order-0 card bg-emerald-300 mb-5 text-black dark:bg-emerald-800 dark:text-white"
         >
             <button class="btn bg-pink mb-3"> circa 2024. </button>
             <p>
