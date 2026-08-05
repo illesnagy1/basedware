@@ -2,17 +2,21 @@ name: Create Release tag
 
 on:
   push:
-    branches: ["main"]
+    branches:
+      - main
+
+permissions: {}
 
 jobs:
   release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v7
         with:
           fetch-depth: 0
-          token: ${{ secrets.RELEASE_BASED_PAT }}
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
