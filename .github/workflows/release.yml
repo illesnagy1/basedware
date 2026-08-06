@@ -2,28 +2,31 @@ name: Create Release tag
 
 on:
   push:
-    branches: ["main"]
+    branches:
+      - main
+
+permissions: {}
 
 jobs:
   release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
-          token: ${{ secrets.RELEASE_BASED_PAT }}
+          fetch-depth: 0
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
         with:
-          node-version: "lts/*"
+          bun-version: latest
 
-      - name: Install Dependencies
-        run: | 
-          npm install --legacy-peer-deps
-          npm audit fix || true
+      - name: Install dependencies
+        run: bun ci
 
       - name: Semantic Release
         env:
           GITHUB_TOKEN: ${{ secrets.RELEASE_BASED_PAT }}
-        run: npx semantic-release
+        run: bunx semantic-release
