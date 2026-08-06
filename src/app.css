@@ -2,8 +2,12 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-*, *::before, *::after {
-    transition-property: color, background-color, border-color, fill, stroke;
+body, 
+.card, 
+.btn, 
+.btn-sm,
+h1, h2, p, a {
+    transition-property: color, background-color, border-color, fill, stroke, box-shadow;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 300ms;
 }
@@ -38,7 +42,10 @@ body {
     background-color: var(--color-bg);
     color: var(--color-text);
     font-family: 'Inter', sans-serif;
-    font-size: 20px;
+    font-size: 1.2rem;
+    @media (max-width: 768px) {
+        font-size: 1rem;
+    }
     transition: background-color 0.3s ease, color 0.3s ease;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
@@ -58,7 +65,15 @@ h1 {
 
 h2 {
     font-family: 'Space Grotesk', sans-serif;
+    font-size: 3.75rem;
     margin-bottom: 1rem;
+    @media (max-width: 768px) {
+        font-size: 2.25rem;
+    }
+}
+
+h3 {
+    font-family: 'Space Grotesk', sans-serif;
 }
 
 @layer components {
@@ -125,5 +140,25 @@ h2 {
     .card:hover {
         transform: translate(-2px, -2px);
         box-shadow: 7px 7px 0 0 var(--color-shadow);
+    }
+    .nb-input {
+        padding: 0.75rem 1rem;
+        border: 3px solid var(--color-border);
+        border-radius: 0;
+        box-shadow: 3px 3px 0 0 var(--color-shadow);
+        transition: box-shadow 0.15s, transform 0.15s;
+    }
+
+    .nb-input:focus {
+        outline: 3px solid var(--color-blue);
+        outline-offset: 2px;
+        box-shadow: 5px 5px 0 0 var(--color-shadow);
+        transform: translate(-1px, -1px);
+    }
+
+    .nb-label {
+        font-weight: 700;
+        font-size: 0.875rem;
+        margin-bottom: 0.5rem;
     }
 }

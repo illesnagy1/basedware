@@ -10,8 +10,8 @@
     class="flex flex-row justify-center min-h-screen min-w-full bg-rose-500 text-black border-b-5 border-black dark:border-white"
 >
     <div class="flex flex-col justify-center gap-4 w-7/8 md:w-5/8 p-10">
-        <h1 class="text-7xl md:text-9xl">ALT<br />ER<br />COM</h1>
-        <h2 class="text-3xl md:text-4xl">
+        <h1 class="text-6xl md:text-9xl">ALT<br />ER<br />COM</h1>
+        <h2 class="text-2xl md:text-4xl">
             Be based.<br /> Based on human rights.
         </h2>
         <p>
@@ -28,7 +28,7 @@
     class="flex flex-row justify-center min-w-full gap-4 dark:bg-mist-800 dark:text-white bg-bg py-4 px-2 border-b-5 border-black dark:border-white"
 >
     <div class="flex flex-col justify-center gap-4 w-7/8 md:w-5/8 p-10">
-        <h2 id="introduction" class="text-5xl md:text-6xl">Introduction</h2>
+        <h2 id="introduction" class="text-4xl md:text-6xl">Introduction</h2>
         <p>
             Hi, I'm Valentin. At first I only wanted to host my XMPP server but
             I decided to host this page too, so maybe I can explain myself a
@@ -44,7 +44,7 @@
     class="flex flex-row justify-center min-w-full gap-4 bg-sky-100 text-black dark:bg-slate-700 dark:text-white py-4 px-2 border-b-5 border-black dark:border-white"
 >
     <div class="flex flex-col justify-center gap-4 w-7/8 md:w-5/8 p-10">
-        <h2 id="privacy" class="text-5xl md:text-6xl">What is privacy?</h2>
+        <h2 id="privacy" class="text-4xl md:text-6xl">What is privacy?</h2>
         <div class="flex flex-col md:flex-row gap-4">
             <div class="contents md:flex md:flex-col md:basis-1/2">
                 <p class="order-1 md:order-0">
@@ -148,7 +148,7 @@
     class="flex flex-row justify-center min-w-full gap-4 bg-purple-100 text-black dark:bg-stone-700 dark:text-white py-4 px-2 border-b-5 border-black dark:border-white"
 >
     <div class="flex flex-col justify-center gap-4 w-7/8 md:w-5/8 p-10">
-        <h2 id="private_messaging" class="text-5xl md:text-6xl">
+        <h2 id="private_messaging" class="text-4xl md:text-6xl">
             Privacy-preserving communication
         </h2>
         <div class="flex flex-col md:flex-row gap-4">
@@ -300,7 +300,7 @@
     class="flex flex-row justify-center min-w-full gap-4 bg-rose-100 text-black dark:bg-rose-700 dark:text-white py-4 px-2 border-b-5 border-black dark:border-white"
 >
     <div class="flex flex-col justify-center gap-4 w-7/8 md:w-5/8 p-10">
-        <h2 id="privacy-attack" class="text-5xl md:text-6xl">
+        <h2 id="privacy-attack" class="text-4xl md:text-6xl">
             Privacy is under attack
         </h2>
         <div class="flex flex-col gap-4">
@@ -401,7 +401,7 @@
                     <a
                         href="https://en.wikipedia.org/wiki/Panopticon"
                         target="_blank"
-                        class="bg-yellow text-black border-b-3 border-black dark:border-white hover:bg-white p-1"
+                        class="underline hover:bg-yellow p-1"
                         >Panopticon</a
                     > is a prison design first proposed by Jeremy Bentham, where
                     inmates become docile simply because of the ever-watching guard
@@ -592,10 +592,11 @@
         <div
             class="card bg-yellow mb-5 text-black"
         >
-            <h2 class="text-2xl md:text-3xl italic">
+            <h3 class="text-xl md:text-3xl italic">
                 Nice try feds, but communication with my buddies is
                 already maximum-encrypted by remaining strictly inside my head!
-            </h2>
+            </h3>
+            <p>To be continued...</p>
         </div>
     </div>
 </div>
@@ -607,7 +608,7 @@
             Contributors
         </h2>
         <p>
-            <b>Valentin Kurcz,</b> <a class="btn bg-purple-600 text-dark" href="https://valko.basedware.xyz">valko.basedware.xyz</a>
+            <a class="btn bg-purple-600 text-dark m-2" href="https://valko.basedware.xyz">Valentin</a>
         </p>
     </div>
 </div>
