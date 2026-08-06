@@ -610,8 +610,9 @@
         <h2 class="text-3xl md:text-4xl">
             Contributors
         </h2>
-        <p>
+        <div class="flex flex-row gap-4">
             <Button class="bg-purple-600 text-dark m-2" href="https://valko.basedware.xyz">Valentin</Button>
-        </p>
+            <Button class="bg-white text-dark m-2" href="https://github.com/illesnagy1">Illés</Button>
+        </div>
     </div>
 </div>
