@@ -1,3 +1,8 @@
+<script lang="ts">
+    import Button from '$lib/Button.svelte';
+    import Card from '$lib/Card.svelte';
+</script>
+
 <svelte:head>
     <title>ALTERCOM.</title>
     <meta
@@ -18,8 +23,8 @@
             A brief summary on why I started to transfer my digital life into
             <b>decentralized and open platforms</b>.
         </p>
-        <a href="#introduction" class="btn max-w-fit text-black bg-yellow"
-            >Start reading</a
+        <Button href="#introduction" class="max-w-fit text-black bg-yellow"
+            >Start reading</Button
         >
     </div>
 </div>
@@ -89,10 +94,10 @@
                 </p>
             </div>
             <div class="contents md:flex md:flex-col md:basis-1/2 md:gap-4">
-                <div
-                    class="order-2 md:order-0 card bg-yellow-300 mt-10 mb-5 text-black dark:bg-yellow-700 dark:text-white"
+                <Card
+                    class="order-2 md:order-0 mt-10 mb-5 text-black bg-yellow-300 dark:bg-yellow-700 dark:text-white"
                 >
-                    <button class="btn bg-pink mb-3"> circa 2013. </button>
+                    <Button class="bg-pink mb-3">circa 2013.</Button>
                     <p>
                         Edward Snowden, a former contractor for the United
                         States government, leaked classified information from
@@ -102,25 +107,25 @@
                             >untargeted collection of phone and internet data</b
                         > from millions of people around the world.
                     </p>
-                </div>
+                </Card>
 
-                <div
-                    class="order-4 md:order-0 card bg-purple-300 mb-5 text-black dark:bg-purple-800 dark:text-white"
+                <Card
+                    class="order-4 md:order-0 mb-5 text-black bg-purple-300 dark:bg-purple-800 dark:text-white"
                 >
-                    <button class="btn bg-pink mb-3"> circa 2016. </button>
+                    <Button class="bg-pink mb-3">circa 2016.</Button>
                     <p>
                         The Cambridge Analytica scandal revealed that the
                         personal data of millions of Facebook users had been
                         <b>harvested without consent</b> and used for political advertising
                         and manipulation.
                     </p>
-                </div>
+                </Card>
             </div>
         </div>
-        <div
-            class="order-6 md:order-0 card bg-emerald-300 mb-5 text-black dark:bg-emerald-800 dark:text-white"
+        <Card
+            class="order-6 md:order-0 mb-5 text-black bg-emerald-300 dark:bg-emerald-800 dark:text-white"
         >
-            <button class="btn bg-pink mb-3"> circa 2024. </button>
+            <Button class="bg-pink mb-3">circa 2024.</Button>
             <p>
                 The Israeli Pegasus spyware was used to target <b
                     >more than 300 Hungarian phone numbers</b
@@ -141,7 +146,7 @@
                 >
             </p>
             <div class="flex flex-col gap-2 text-sm break-all"></div>
-        </div>
+        </Card>
     </div>
 </div>
 <div
@@ -194,10 +199,10 @@
                         Instagram, Snapchat, and so on do exactly that.</b
                     >
                 </p>
-                <div
-                    class="card bg-sky-300 mb-5 text-black dark:bg-sky-800 dark:text-white"
+                <Card
+                    class="mb-5 text-black bg-sky-300 dark:bg-sky-800 dark:text-white"
                 >
-                    <button class="btn bg-pink mb-3"> TLS </button>
+                    <Button class="bg-pink mb-3">TLS</Button>
                     <p>
                         Transport Layer Security is an application-agnostic
                         security layer that enables two communicating sockets
@@ -209,7 +214,7 @@
                         with symmetric cryptography to encrypt the communication
                         using the established secret.
                     </p>
-                </div>
+                </Card>
                 <p>
                     <b>We can't really trust the server.</b> Server
                     administrators can be
@@ -250,10 +255,10 @@
                     to the bone, they would still comply with secret government court
                     orders without letting you know, of course.
                 </p>
-                <div
-                    class="card bg-rose-300 mb-5 text-black dark:bg-rose-800 dark:text-white"
+                <Card
+                    class="mb-5 text-black bg-rose-300 dark:bg-rose-800 dark:text-white"
                 >
-                    <button class="btn bg-pink mb-3">Skype backdoor</button>
+                    <Button class="bg-pink mb-3">Skype backdoor</Button>
                     <p>
                         Leaked NSA documents state that multiple US companies,
                         for example, Microsoft, collaborated with the agency,
@@ -265,7 +270,7 @@
                         51% sure the suspect was a foreign citizen. You can't make
                         this shit up.
                     </p>
-                </div>
+                </Card>
                 <p>
                     There is no universal solution to privacy-preserving
                     communication, since the problem itself is complex and has
@@ -345,17 +350,17 @@
                     and the second is convincing because we naturally want to defend
                     our children.
                 </p>
-                <div
-                    class="card bg-orange-300 mb-5 text-black dark:bg-orange-800 dark:text-white"
+                <Card
+                    class="mb-5 text-black bg-orange-300 dark:bg-orange-800 dark:text-white"
                 >
-                    <button class="btn bg-pink mb-3">1956</button>
+                    <Button class="bg-pink mb-3">1956</Button>
                     <p>
                         During the 1956 uprising in Hungary, freedom fighters
                         fighting against the Soviet regime were <b
                             >all called terrorists.</b
                         >
                     </p>
-                </div>
+                </Card>
                 <p>
                     You might think that mass surveillance doesn't affect you
                     because you don't have anything to hide, being a perfect,
@@ -376,15 +381,15 @@
                     masses, one needs to control the life of the average person who
                     makes up that mass.
                 </p>
-                <div
-                    class="card bg-blue-300 mb-5 text-black dark:bg-blue-800 dark:text-white"
+                <Card
+                    class="mb-5 text-black bg-blue-300 dark:bg-blue-800 dark:text-white"
                 >
-                    <button class="btn bg-pink mb-3">UK</button>
+                    <Button class="bg-pink mb-3">UK</Button>
                     <p>
                         12,000 arrests in 2023, United Kingdom, for "offensive"
                         posts.
                     </p>
-                </div>
+                </Card>
                 <p>
                     The worst part isn't just that they want to breach privacy,
                     but the fact that you know they are doing it. The danger
@@ -408,11 +413,11 @@
                     tower.
                 </p>
             </div>
-            <div
-                class="card bg-blue-600 mb-5 text-white dark:bg-blue-900 border-2 border-black dark:border-white"
+            <Card
+                class="mb-5 text-white bg-blue-600 dark:bg-blue-900 border-2 border-black dark:border-white"
             >
-                <button class="btn bg-yellow text-black mb-3"
-                    >Chat Control</button
+                <Button class="bg-yellow text-black mb-3"
+                    >Chat Control</Button
                 >
                 <p
                     class="text-sm italic bg-yellow text-black border-b-3 border-black dark:border-white hover:bg-white p-2 inline-block mb-2"
@@ -581,7 +586,7 @@
                     not convinced please visit the linked page from Patrick
                     Breyer!
                 </p>
-            </div>
+            </Card>
         </div>
     </div>
 </div>
@@ -589,15 +594,13 @@
     class="flex flex-row justify-center min-w-full gap-4 dark:bg-mist-800 dark:text-white bg-bg py-4 px-2 border-b-5 border-black dark:border-white"
 >
     <div class="flex flex-col justify-center gap-4 w-7/8 md:w-5/8 p-10">
-        <div
-            class="card bg-yellow mb-5 text-black"
-        >
+        <Card class="mb-5 text-black bg-yellow">
             <h3 class="text-xl md:text-3xl italic">
                 Nice try feds, but communication with my buddies is
                 already maximum-encrypted by remaining strictly inside my head!
             </h3>
             <p>To be continued...</p>
-        </div>
+        </Card>
     </div>
 </div>
 <div
@@ -608,7 +611,7 @@
             Contributors
         </h2>
         <p>
-            <a class="btn bg-purple-600 text-dark m-2" href="https://valko.basedware.xyz">Valentin</a>
+            <Button class="bg-purple-600 text-dark m-2" href="https://valko.basedware.xyz">Valentin</Button>
         </p>
     </div>
 </div>
