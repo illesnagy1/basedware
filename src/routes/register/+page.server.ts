@@ -20,14 +20,23 @@ export const actions = {
 			return fail(400, { weakPassword: true });
 		}
 
-		await new Promise((fulfil) => setTimeout(fulfil, 5000));
-		// result = fetch("https://xmpp.basedware.xyz/invites_register_web",)
-		// await 
-		// return { success: true };
+		try{
+			const result = await fetch("https://xmpp.basedware.xyz/invites_register_web?t=" + token, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/www-form-urlencoded",
+				},
+				body: `username=${encodeURIComponent(jid)}&password=${encodeURIComponent(password)}`,
+			});
+		} catch (error) {
+
+		}
+
+		return { success: true };
 	},
 }; 
 
 function validateJID(jid: string): boolean {
-    const jidRegex = /^[^\s@]+@[^\s@/]+(?:\/.*)?$/;
+	const jidRegex = /^[^"&'/:<>@\s\x00-\x1F\x7F]{1,1023}@[^\s@/]{1,1023}(?:\/.*)?$/;
     return jidRegex.test(jid);
 }

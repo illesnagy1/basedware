@@ -7,9 +7,10 @@
     let fullJID: string = $derived.by(() => `${localpartJID}@basedware.xyz`);
 
     function validateJID(jid: string): boolean {
-        const jidRegex = /^[^\s@]+@[^\s@/]+(?:\/.*)?$/;
-        return jidRegex.test(jid);
+	    const jidRegex = /^[^"&'/:<>@\s\x00-\x1F\x7F]{1,1023}@[^\s@/]{1,1023}(?:\/.*)?$/;
+      return jidRegex.test(jid);
     }
+
 
     let jidErrorMessage = $state("");
 
