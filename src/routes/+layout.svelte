@@ -19,9 +19,12 @@
     <link rel="preload" as="font" type="font/woff2" href={interFont} crossorigin="anonymous" />
 </svelte:head>
 
-<nav class="flex flex-row justify-between items-center gap-4 dark:bg-black dark:text-white bg-bg py-1 px-5 border-b-5 border-black dark:border-white sticky top-0 z-50">
-    <Theme />
-    <h1>ALTERCOM<span class="text-red-500">.</span></h1>
+<nav class="nav">
+    <div class="container">
+        <Theme />
+        <a href="/" class="nav-logo">ALTERCOM<span class="text-red-500">.</span></a>
+
+    </div>
 </nav>
 
 <Progress />

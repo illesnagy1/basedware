@@ -23,7 +23,7 @@
             A brief summary on why I started to transfer my digital life into
             <b>decentralized and open platforms</b>.
         </p>
-        <Button href="#introduction" class="max-w-fit text-black bg-yellow"
+        <Button href="#introduction" class="max-w-fit btn-yellow"
             >Start reading</Button
         >
     </div>
@@ -38,7 +38,7 @@
             Hi, I'm Valentin. At first I only wanted to host my XMPP server but
             I decided to host this page too, so maybe I can explain myself a
             bit. So I guess you are curious about wtf is this. Well...sorry to
-            disappoint you but the final purpuse of this page is yet to decided,
+            disappoint you but the final purpose of this page is yet to decided,
             until then, I can share some of my thoughts on <b
                 >privacy and technology</b
             >.
@@ -56,7 +56,7 @@
                     <b>Privacy</b> is a human right. It can come in many forms,
                     but at its core it only means one thing:
                     <span
-                        class="text-black bg-yellow border-b-2 border-black dark:border-white px-1"
+                        class="highlight-yellow"
                         >control over who you share your information with.</span
                     >
                     It is a right that protects the individual from the abuse of
@@ -79,12 +79,12 @@
                 </p>
                 <p class="order-7 md:order-0">
                     Of course, ethics are not <span
-                        class="bg-black text-white border-b-2 border-white px-1"
+                        class="highlight-black"
                         >black</span
                     >
                     and
                     <span
-                        class="bg-white text-black border-b-2 border-black px-1"
+                        class="highlight-white"
                         >white</span
                     >; in some cases, one right takes precedence over another.
                     For example, in most countries in the world, it is evident
@@ -95,9 +95,11 @@
             </div>
             <div class="contents md:flex md:flex-col md:basis-1/2 md:gap-4">
                 <Card
-                    class="order-2 md:order-0 mt-10 mb-5 text-black bg-yellow-300 dark:bg-yellow-700 dark:text-white"
+                    class="order-2 md:order-0 card-yellow"
                 >
-                    <Button class="bg-pink mb-3">circa 2013.</Button>
+                    <span class="badge badge-pink">
+                        2013
+                    </span>
                     <p>
                         Edward Snowden, a former contractor for the United
                         States government, leaked classified information from
@@ -110,9 +112,11 @@
                 </Card>
 
                 <Card
-                    class="order-4 md:order-0 mb-5 text-black bg-purple-300 dark:bg-purple-800 dark:text-white"
+                    class="order-4 md:order-0 card-purple"
                 >
-                    <Button class="bg-pink mb-3">circa 2016.</Button>
+                    <span class="badge badge-blue">
+                        2016
+                    </span>
                     <p>
                         The Cambridge Analytica scandal revealed that the
                         personal data of millions of Facebook users had been
@@ -123,9 +127,12 @@
             </div>
         </div>
         <Card
-            class="order-6 md:order-0 mb-5 text-black bg-emerald-300 dark:bg-emerald-800 dark:text-white"
+            class="order-6 md:order-0 card-green"
         >
-            <Button class="bg-pink mb-3">circa 2024.</Button>
+
+            <span class="badge badge-black">
+                2024
+            </span>
             <p>
                 The Israeli Pegasus spyware was used to target <b
                     >more than 300 Hungarian phone numbers</b
@@ -135,13 +142,13 @@
                 <a
                     href="https://www.europarl.europa.eu/doceo/document/A-9-2023-0189_HU.html"
                     target="_blank"
-                    class="underline p-1 hover:bg-yellow hover:text-black"
+                    class="nb-links"
                     >European Parliament Report</a
                 >
                 <a
                     href="https://www.naih.hu/adatvedelmi-jelentesek/file/486-jelentes-a-nemzeti-adatvedelmi-es-informaciosszabadsag-hatosag-hivatalbol-inditott-vizsgalatanak-megallapitasai-a-pegasus-kemszoftver-magyarorszagon-torteno-alkalmazasaval-osszuefueggesben"
                     target="_blank"
-                    class="underline p-1 hover:bg-yellow hover:text-black"
+                    class="nb-links"
                     >NAIH Official Statement</a
                 >
             </p>
@@ -168,7 +175,7 @@
                     In a normal conversation, wouldn't anyone be weirded out if
                     someone else stood next to them,
                     <span
-                        class="text-black bg-pink border-b-2 border-black dark:border-white px-1"
+                        class="highlight-pink"
                         >listening and writing down everything they say?</span
                     >
                 </p>
@@ -191,7 +198,7 @@
                     client, can actually understand the messages. However, without
                     any further transformations,
                     <span
-                        class="text-black bg-yellow border-b-2 border-black dark:border-white px-1"
+                        class="highlight-blue"
                         >the server can still read the messages.</span
                     >
                     <b
@@ -200,9 +207,11 @@
                     >
                 </p>
                 <Card
-                    class="mb-5 text-black bg-sky-300 dark:bg-sky-800 dark:text-white"
+                    class="card-blue"
                 >
-                    <Button class="bg-pink mb-3">TLS</Button>
+                    <span class="badge badge-yellow">
+                        TLS
+                    </span>
                     <p>
                         Transport Layer Security is an application-agnostic
                         security layer that enables two communicating sockets
@@ -230,7 +239,7 @@
                     In this scenario, it doesn't matter if the server has
                     malicious intent;
                     <span
-                        class="bg-pink text-black border-b-2 border-black dark:border-white px-1"
+                        class="highlight-pink"
                         >the universe would go cold before they could break the
                         encryption</span
                     > securing the communication.
@@ -256,9 +265,11 @@
                     orders without letting you know, of course.
                 </p>
                 <Card
-                    class="mb-5 text-black bg-rose-300 dark:bg-rose-800 dark:text-white"
+                    class="card-pink"
                 >
-                    <Button class="bg-pink mb-3">Skype backdoor</Button>
+                    <span class="badge badge-blue">
+                        Skype backdoor
+                    </span>
                     <p>
                         Leaked NSA documents state that multiple US companies,
                         for example, Microsoft, collaborated with the agency,
@@ -287,7 +298,7 @@
                     have vastly different threat models. However, I think we
                     should not forget that
                     <span
-                        class="bg-yellow text-black border-b-2 border-black dark:border-white px-1"
+                        class="highlight-green"
                         >privacy is a non-negotiable human right.</span
                     > It's not like your grandma should have less privacy just because
                     there is a smaller chance someone else will try to breach it.
@@ -327,10 +338,7 @@
                     communication. From the perspective of secret agencies, E2EE
                     and the spread of these platforms were a matter of national
                     security. Given this desperate fight against illegal
-                    activities and people <span
-                        class="text-white bg-black border-b-2 border-white px-1"
-                        >going dark</span
-                    >, it is not surprising that a backdoor into these
+                    activities and people going dark, it is not surprising that a backdoor into these
                     privacy-preserving platforms is a wet dream for every agency
                     and government.
                 </p>
@@ -351,9 +359,11 @@
                     our children.
                 </p>
                 <Card
-                    class="mb-5 text-black bg-orange-300 dark:bg-orange-800 dark:text-white"
+                    class="card-orange"
                 >
-                    <Button class="bg-pink mb-3">1956</Button>
+                    <span class="badge badge-pink">
+                        1956
+                    </span>
                     <p>
                         During the 1956 uprising in Hungary, freedom fighters
                         fighting against the Soviet regime were <b
@@ -382,9 +392,11 @@
                     makes up that mass.
                 </p>
                 <Card
-                    class="mb-5 text-black bg-blue-300 dark:bg-blue-800 dark:text-white"
+                    class="card-blue"
                 >
-                    <Button class="bg-pink mb-3">UK</Button>
+                    <span class="badge badge-green">
+                        UK
+                    </span>
                     <p>
                         12,000 arrests in 2023, United Kingdom, for "offensive"
                         posts.
@@ -397,7 +409,7 @@
                     completely differently. People don't search for things they
                     normally would. They don't speak out or question things they
                     normally would. <span
-                        class="bg-pink text-black border-b-2 border-black dark:border-white px-1"
+                        class="highlight-pink"
                         >Humans become their own censors, self-policing
                         themselves due to the psychological effects of
                         surveillance.</span
@@ -406,7 +418,7 @@
                     <a
                         href="https://en.wikipedia.org/wiki/Panopticon"
                         target="_blank"
-                        class="underline hover:bg-yellow p-1"
+                        class="nb-links"
                         >Panopticon</a
                     > is a prison design first proposed by Jeremy Bentham, where
                     inmates become docile simply because of the ever-watching guard
@@ -414,13 +426,13 @@
                 </p>
             </div>
             <Card
-                class="mb-5 text-white bg-blue-600 dark:bg-blue-900 border-2 border-black dark:border-white"
+                class=""
             >
-                <Button class="bg-yellow text-black mb-3"
-                    >Chat Control</Button
-                >
+                <span class="badge badge-yellow">
+                    Chat Control
+                </span>
                 <p
-                    class="text-sm italic bg-yellow text-black border-b-3 border-black dark:border-white hover:bg-white p-2 inline-block mb-2"
+                    class="highlight-blue"
                 >
                     <a
                         href="https://www.patrick-breyer.de/en/posts/chat-control/"
@@ -446,11 +458,9 @@
                     end of anonymous communication, appstore censorship and
                     excluding minors from the digital world.
                 </p>
-                <h2
-                    class="text-2xl bg-yellow text-black border-b-3 border-black dark:border-white inline-block mt-2 mb-2 p-1"
-                >
+                <span class="badge badge-yellow">
                     Chat Control 1.0
-                </h2>
+                </span>
                 <p>
                     On July 6, 2021, a majority of Members of the European
                     Parliament had already agreed to the voluntary use of chat
@@ -473,7 +483,7 @@
                 </p>
                 <p>
                     <span
-                        class="bg-pink text-black border-b-2 border-black dark:border-white px-1"
+                        class="highlight-pink"
                         >The fact that Chat Control is moving forward against
                         the will of the majority of voting MEPs is a farce and
                         damages democracy.</span
@@ -485,11 +495,9 @@
                     to reject the law, would be way harder to gather. But hey, think
                     of the children!
                 </p>
-                <h2
-                    class="text-2xl bg-yellow text-black border-b-3 border-black dark:border-white inline-block mt-2 mb-2 p-1"
-                >
+                <span class="badge badge-yellow">
                     Chat Control 2.0
-                </h2>
+                </span>
                 <p>
                     On 11 May 2022 the European Commission presented a proposal
                     for a follow-up regulation for the mandatory use of chat
@@ -530,7 +538,7 @@
                     itself. <a
                         href="https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52025DC0740"
                         target="_blank"
-                        class="bg-yellow text-black border-b-3 border-black dark:border-white hover:bg-white p-1"
+                        class="nb-links"
                         >In their own report</a
                     >, after 4 years of Chat Control 1.0 being active, they
                     concluded there is not enough data to give a definitive
@@ -594,7 +602,7 @@
     class="flex flex-row justify-center min-w-full gap-4 dark:bg-mist-800 dark:text-white bg-bg py-4 px-2 border-b-5 border-black dark:border-white"
 >
     <div class="flex flex-col justify-center gap-4 w-7/8 md:w-5/8 p-10">
-        <Card class="mb-5 text-black bg-yellow">
+        <Card class="card-yellow">
             <h3 class="text-xl md:text-3xl italic">
                 Nice try feds, but communication with my buddies is
                 already maximum-encrypted by remaining strictly inside my head!
@@ -611,8 +619,8 @@
             Contributors
         </h2>
         <div class="flex flex-row gap-4">
-            <Button class="bg-purple-600 text-dark m-2" href="https://valko.basedware.xyz">Valentin</Button>
-            <Button class="bg-white text-dark m-2" href="https://github.com/illesnagy1">Illés</Button>
+            <Button class="btn-purple m-2" href="https://valko.basedware.xyz">Valentin</Button>
+            <Button class="btn-black text-dark m-2" href="https://github.com/illesnagy1">Illés</Button>
         </div>
     </div>
 </div>

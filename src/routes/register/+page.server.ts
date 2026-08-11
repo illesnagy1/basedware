@@ -4,34 +4,23 @@ import zxcvbn from "zxcvbn";
 export const actions = {
 	default: async ({ request }) => {
 		const data = await request.formData();
-		const jid = data.get("jid") as string;
+		const jid = data.get("JID") as string;
 		const password = data.get("password") as string;
         const token = data.get("token") as string;
-
-		if (!jid || !password || !token) {
-			return fail(400, { missing: true });
-		}
+		
+		if(!jid) return fail(400, { error: "JID cannot be empty. Try again."})
+		if(!password) return fail(400, { error: "The password cannot be empty. Try again."})
+		if(!token) return fail(400, { error: "You must provide a valid token. Try again."})
 
 		if (!validateJID(jid)) {
-			return fail(400, { invalidJID: true });
+			return fail(400, { error: "The provided JID is not valid. Try again." });
 		}
 
 		if (zxcvbn(password).score < 3) {
-			return fail(400, { weakPassword: true });
+			return fail(400, { error: "The provided password is not strong enough. Try again." });
 		}
 
-		try{
-			const result = await fetch("https://xmpp.basedware.xyz/invites_register_web?t=" + token, {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/www-form-urlencoded",
-				},
-				body: `username=${encodeURIComponent(jid)}&password=${encodeURIComponent(password)}`,
-			});
-		} catch (error) {
-
-		}
-
+		await new Promise((fulfil)=>setTimeout(fulfil, 5000))
 		return { success: true };
 	},
 }; 
