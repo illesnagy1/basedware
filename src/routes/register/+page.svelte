@@ -8,13 +8,12 @@
   const tokenURL = page.url.searchParams.get("t");
 
   let { form } = $props();
-  let localpartJID: string = $state("");
-  let fullJID: string = $derived.by(() => `${localpartJID}@basedware.xyz`);
+  let username: string = $state("");
 
-  function validateJID(jid: string): boolean {
+  function validateJID(username: string): boolean {
     const jidRegex =
-      /^[^"&'/:<>@\s\x00-\x1F\x7F]{1,1023}@[^\s@/]{1,1023}(?:\/.*)?$/;
-    return jidRegex.test(jid);
+      /^[^"&'/:<>@\s\x00-\x1F\x7F]{1,1023}?$/;
+    return jidRegex.test(username);
   }
 
   let jidErrorMessage = $state("");
@@ -24,11 +23,11 @@
   let submitting = $state(false);
 
   let passwordStrength = $derived.by(() => {
-    let result = zxcvbn(password, [fullJID]);
+    let result = zxcvbn(password, [username]);
     return result.score;
   });
   let passwordFeedback = $derived(
-    zxcvbn(password, [fullJID]).feedback.suggestions.join("\n"),
+    zxcvbn(password, [username]).feedback.suggestions.join("\n"),
   );
 
   let passwordStrengthColor = $derived.by(() => {
@@ -63,9 +62,8 @@
     <form
       method="POST"
       class="space-y-6"
-      use:enhance={({ formData, cancel }) => {
+      use:enhance={() => {
         submitting = true;
-        formData.set("JID", `${fullJID}`);
         return async ({ update }) => {
           await update();
           submitting = false;
@@ -77,9 +75,9 @@
         <div class="mt-2">
           <div class="flex flex-row justify-center items-start gap-2">
             <input
-              bind:value={localpartJID}
+              bind:value={username}
               onblur={() =>
-                (jidErrorMessage = validateJID(fullJID)
+                (jidErrorMessage = validateJID(username)
                   ? ""
                   : "Invalid Jabbra ID format.")}
               oninput={() => (jidErrorMessage = "")}
