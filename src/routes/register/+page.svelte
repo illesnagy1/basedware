@@ -24,11 +24,11 @@
   let submitting = $state(false);
 
   let passwordStrength = $derived.by(() => {
-    let result = zxcvbn(password);
+    let result = zxcvbn(password, [fullJID]);
     return result.score;
   });
   let passwordFeedback = $derived(
-    zxcvbn(password).feedback.suggestions.join("\n"),
+    zxcvbn(password, [fullJID]).feedback.suggestions.join("\n"),
   );
 
   let passwordStrengthColor = $derived.by(() => {
