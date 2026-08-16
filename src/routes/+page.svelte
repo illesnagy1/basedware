@@ -563,7 +563,7 @@
                 <p>
                     So I raise the question: what's the whole point? The
                     criminals who should be prosecuted get away by using E2EE
-                    applications, but commoners using soyware applications pay
+                    applications, but the avergae user using mainstream applications pay
                     the price with their privacy gone. I'm not saying that we
                     should extend Chat Control to E2EE messages, hell no. I'm
                     saying that we are being scammed. <b
