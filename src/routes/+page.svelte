@@ -29,11 +29,12 @@
     </div>
 </div>
 
-<div
-    class="flex flex-row justify-center min-w-full gap-4 dark:bg-mist-800 dark:text-white bg-bg py-4 px-2 border-b-5 border-black dark:border-white"
+<section
+    id="introduction"
+    class="flex flex-row justify-center min-w-full gap-4 dark:bg-mist-800 dark:text-white bg-bg py-10 px-2 border-b-5 border-black dark:border-white"
 >
     <div class="flex flex-col justify-center gap-4 w-7/8 md:w-5/8 p-10">
-        <h2 id="introduction" class="text-4xl md:text-6xl">Introduction</h2>
+        <h2 class="text-4xl md:text-6xl">Introduction</h2>
         <p>
             Hi, I'm Valentin. At first I only wanted to host my XMPP server but
             I decided to host this page too, so maybe I can explain myself a
@@ -44,12 +45,13 @@
             >.
         </p>
     </div>
-</div>
-<div
-    class="flex flex-row justify-center min-w-full gap-4 bg-sky-100 text-black dark:bg-slate-700 dark:text-white py-4 px-2 border-b-5 border-black dark:border-white"
+</section>
+<section
+    id="privacy"
+    class="flex flex-row justify-center min-w-full gap-4 bg-sky-100 text-black dark:bg-slate-700 dark:text-white py-10 px-2 border-b-5 border-black dark:border-white"
 >
     <div class="flex flex-col justify-center gap-4 w-7/8 md:w-5/8 p-10">
-        <h2 id="privacy" class="text-4xl md:text-6xl">What is privacy?</h2>
+        <h2 class="text-4xl md:text-6xl">What is privacy?</h2>
         <div class="flex flex-col md:flex-row gap-4">
             <div class="contents md:flex md:flex-col md:basis-1/2">
                 <p class="order-1 md:order-0">
@@ -155,12 +157,13 @@
             <div class="flex flex-col gap-2 text-sm break-all"></div>
         </Card>
     </div>
-</div>
-<div
-    class="flex flex-row justify-center min-w-full gap-4 bg-purple-100 text-black dark:bg-stone-700 dark:text-white py-4 px-2 border-b-5 border-black dark:border-white"
+</section>
+<section
+    id="private_messaging"
+    class="flex flex-row justify-center min-w-full gap-4 bg-purple-100 text-black dark:bg-stone-700 dark:text-white py-10 px-2 border-b-5 border-black dark:border-white"
 >
     <div class="flex flex-col justify-center gap-4 w-7/8 md:w-5/8 p-10">
-        <h2 id="private_messaging" class="text-4xl md:text-6xl">
+        <h2 class="text-4xl md:text-6xl">
             Privacy-preserving communication
         </h2>
         <div class="flex flex-col md:flex-row gap-4">
@@ -311,12 +314,13 @@
             </div>
         </div>
     </div>
-</div>
-<div
-    class="flex flex-row justify-center min-w-full gap-4 bg-rose-100 text-black dark:bg-rose-700 dark:text-white py-4 px-2 border-b-5 border-black dark:border-white"
+</section>
+<section
+    id="privacy_attack"
+    class="flex flex-row justify-center min-w-full gap-4 bg-rose-100 text-black dark:bg-rose-700 dark:text-white py-10 px-2 border-b-5 border-black dark:border-white"
 >
     <div class="flex flex-col justify-center gap-4 w-7/8 md:w-5/8 p-10">
-        <h2 id="privacy-attack" class="text-4xl md:text-6xl">
+        <h2 class="text-4xl md:text-6xl">
             Privacy is under attack
         </h2>
         <div class="flex flex-col gap-4">
@@ -597,8 +601,8 @@
             </Card>
         </div>
     </div>
-</div>
-<div
+</section>
+<section
     class="flex flex-row justify-center min-w-full gap-4 dark:bg-mist-800 dark:text-white bg-bg py-4 px-2 border-b-5 border-black dark:border-white"
 >
     <div class="flex flex-col justify-center gap-4 w-7/8 md:w-5/8 p-10">
@@ -610,8 +614,8 @@
             <p>To be continued...</p>
         </Card>
     </div>
-</div>
-<div
+</section>
+<section
     class="flex flex-row justify-center bg-rose-500 text-black border-b-5 border-black dark:border-white"
 >
     <div class="flex flex-col justify-center gap-4 w-7/8 md:w-5/8 p-10">
@@ -623,4 +627,4 @@
             <Button class="btn-black text-dark m-2" href="https://github.com/illesnagy1">Illés</Button>
         </div>
     </div>
-</div>
+</section>

@@ -20,7 +20,7 @@
 </svelte:head>
 
 <nav class="nav">
-    <div class="container">
+    <div class="w-full px-4 flex items-center justify-between">
         <Theme />
         <a href="/" class="nav-logo">ALTERCOM<span class="text-red-500">.</span></a>
 
