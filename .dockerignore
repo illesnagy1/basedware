@@ -19,3 +19,4 @@ build
 package
 coverage*
 **/.env
+redis-data
