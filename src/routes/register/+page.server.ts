@@ -24,26 +24,25 @@ export const actions = {
 		}
 
 		try {
-			console.log(`${env.PROSODY_HOST}/register_api/register`)
-			const prosody_response = await fetch(`${env.PROSODY_HOST}/register_api/register`, {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({
-					username: username,
-					password: password,
-					token: token
-				}),
-			});
+			// const prosody_response = await fetch(`${env.PROSODY_HOST}/register_api/register`, {
+			// 	method: "POST",
+			// 	headers: {
+			// 		"Content-Type": "application/json",
+			// 	},
+			// 	body: JSON.stringify({
+			// 		username: username,
+			// 		password: password,
+			// 		token: token
+			// 	}),
+			// });
 			
-			if (prosody_response.status == 404) {
-				return fail(400, { error: "The provided token is not valid or expired. Try again." });
-			} else if (prosody_response.status == 409) {
-				return fail(400, { error: "The provided JID is already registered. Try again." });
-			} else if (prosody_response.status == 500) {
-				return fail(500, { error: "An internal server error occurred. Try again later." });
-			}
+			// if (prosody_response.status == 404) {
+			// 	return fail(400, { error: "The provided token is not valid or expired. Try again." });
+			// } else if (prosody_response.status == 409) {
+			// 	return fail(400, { error: "The provided JID is already registered. Try again." });
+			// } else if (prosody_response.status == 500) {
+			// 	return fail(500, { error: "An internal server error occurred. Try again later." });
+			// }
 
 			return { success: true };
 
