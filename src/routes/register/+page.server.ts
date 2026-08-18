@@ -24,6 +24,7 @@ export const actions = {
 		}
 
 		try {
+			console.log(`${env.PROSODY_HOST}/register_api/register`)
 			const prosody_response = await fetch(`${env.PROSODY_HOST}/register_api/register`, {
 				method: "POST",
 				headers: {
