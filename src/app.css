@@ -538,7 +538,6 @@ h3 {
 
     .timeline-item {
         position: relative;
-        width: 70%;
         padding-bottom: var(--space-xl);
     }
 
