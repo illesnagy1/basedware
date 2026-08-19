@@ -52,11 +52,12 @@
 
   function detectOS(): string {
     let OSName = "Unknown OS";
-    if (navigator.appVersion?.indexOf("Win") != -1) OSName = "Windows";
-    if (navigator.appVersion?.indexOf("Mac") != -1) OSName = "MacOS";
-    if (navigator.appVersion?.indexOf("Linux") != -1) OSName = "Linux";
-    if (navigator.appVersion?.indexOf("iOS") != -1) OSName = "iOS";
-    if (navigator.appVersion?.indexOf("Android") != -1) OSName = "Android";
+    let app = navigator.userAgent
+    if (app?.indexOf("Win") != -1) OSName = "Windows";
+    if (app?.indexOf("Mac") != -1) OSName = "MacOS";
+    if (app?.indexOf("Linux") != -1) OSName = "Linux";
+    if (app?.indexOf("iOS") != -1) OSName = "iOS";
+    if (app?.indexOf("Android") != -1) OSName = "Android";
     return OSName;
   }
 
@@ -100,7 +101,7 @@ function pickaboo(options: { threshold?: number } = {}): Attachment {
   }</script>
 
 <div class="flex min-h-full flex-col px-6 py-12 lg:px-8">
-  <div class="timeline md:w-3/4 lg:w-2/3">
+  <div class="timeline md:w-3/4">
     <div class="timeline-item">
       <div class="timeline-dot"></div>
       {#if currentStep == 1}
@@ -266,7 +267,7 @@ function pickaboo(options: { threshold?: number } = {}): Attachment {
           </select>
 
           <div
-            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4"
           >
             {#each filteredApplications as app}
               <div class="timeline-app bg-white dark:bg-mist-800">
