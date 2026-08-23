@@ -44,4 +44,8 @@
   </script>
 </svelte:head>
 
-<button class="btn-sm hover:bg-yellow m-4 size-6 p-0" onclick={() => setMode(!dark)} title="Toggle theme"></button>
+<button
+  class="btn-sm hover:bg-yellow m-4 size-6 shrink-0 p-0"
+  onclick={() => setMode(!dark)}
+  title="Toggle theme"
+></button>

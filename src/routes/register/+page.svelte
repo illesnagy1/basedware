@@ -101,17 +101,15 @@
                   {#snippet children({ props })}
                     <Label class="nb-label block">Jabbra ID</Label>
                     <div class="mt-2">
-                      <div class="flex flex-row items-start justify-center gap-2">
+                      <div class="flex flex-row flex-wrap items-center justify-center gap-2">
                         <input
                           {...props}
                           bind:value={$formData.JID}
                           placeholder="Enter your Jabbra ID"
-                          class="nb-input block w-full text-sm placeholder:text-sm"
+                          class="nb-input block min-w-40 flex-1 text-sm placeholder:text-sm"
                         />
-                        <div class="my-auto">
-                          <div class="font-weight-700 m-0 block text-sm text-gray-600 dark:text-gray-400">
-                            @basedware.xyz
-                          </div>
+                        <div class="font-weight-700 m-0 block text-sm text-gray-600 dark:text-gray-400">
+                          @basedware.xyz
                         </div>
                       </div>
                     </div>
