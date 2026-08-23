@@ -2,55 +2,54 @@
   import zxcvbn from "zxcvbn";
   import Toast from "$lib/Toast.svelte";
   import Button from "$lib/Button.svelte";
-  import { enhance } from "$app/forms";
-  import { page } from "$app/state";
+  import { superForm } from "sveltekit-superforms";
+  import { zod4Client } from "sveltekit-superforms/adapters";
+  import { Field, Control, Label, FieldErrors } from "formsnap";
   import { applications } from "$lib/apps";
   import AppCard from "$lib/apps/AppCard.svelte";
   import { Platform, platforms } from "$lib/platforms";
+  import { registerSchema } from "./schema";
   import { onMount } from "svelte";
+  import { page } from "$app/state";
   import type { Attachment } from 'svelte/attachments';
   import { slide } from "svelte/transition";
+  import Card from "$lib/Card.svelte"
 
-  const tokenURL = page.url.searchParams.get("t");
+  let { data } = $props();
 
-  let { form } = $props();
-  let username: string = $state("");
+  let currentStep = $state(1);
 
-  function validateJID(username: string): boolean {
-    const jidRegex = /^[^"&'/:<>@\s\x00-\x1F\x7F]{1,1023}?$/;
-    return jidRegex.test(username);
-  }
-
-  let jidErrorMessage = $state("");
-
-  let password: string = $state("");
-  let token: string = $state(tokenURL || "");
-  let submitting = $state(false);
+  const superform = superForm(data.form, {
+    validators: zod4Client(registerSchema),
+    resetForm: false,
+    onUpdated: ({ form }) => {
+      if (form.valid) {
+        setTimeout(() => {
+          currentStep = 2;
+        }, 3500);
+      }
+    },
+  });
+  const { form: formData, message, enhance, submitting, allErrors } = superform;
 
   let passwordStrength = $derived.by(() => {
-    let result = zxcvbn(password, [username]);
+    let result = zxcvbn($formData.password, [$formData.JID]);
     return result.score;
   });
   let passwordFeedback = $derived(
-    zxcvbn(password, [username]).feedback.suggestions.join("\n"),
+    zxcvbn($formData.password, [$formData.JID]).feedback.suggestions.join("\n"),
   );
 
-  let passwordStrengthColor = $derived.by(() => {
-    switch (passwordStrength) {
-      case 0:
-        return "bg-red-500";
-      case 1:
-        return "bg-orange-500";
-      case 2:
-        return "bg-yellow-500";
-      case 3:
-        return "bg-green-500";
-      case 4:
-        return "bg-blue-500";
-      default:
-        return "bg-gray-500";
-    }
-  });
+  const passwordStrengthColors = [
+    "bg-red-500",
+    "bg-orange-500",
+    "bg-yellow-500",
+    "bg-green-500",
+    "bg-blue-500",
+  ];
+  let passwordStrengthColor = $derived(
+    passwordStrengthColors[passwordStrength] ?? "bg-gray-500",
+  );
 
   function detectOS(): Platform | undefined {
     let ua = navigator.userAgent.toLowerCase();
@@ -62,8 +61,8 @@
     return undefined;
   }
 
-  let userOS: Platform | undefined = $state(undefined);
-  let filterOS: Platform | "All platforms" = $state("All platforms");
+  let userOS: Platform | undefined = $state.raw(undefined);
+  let filterOS: Platform | "All platforms" = $state.raw("All platforms");
 
   onMount(() => {
     userOS = detectOS();
@@ -78,8 +77,6 @@
       app.platforms.some((platform) => platform === filterOS),
     );
   });
-
-  let currentStep = $state(1);
 
   function pickaboo(options: { threshold?: number } = {}): Attachment {
     return (node) => {
@@ -115,119 +112,91 @@
             Your Jabbra ID is your unique identifier on the platform. It should
             be memorable and easy to share with others.
           </p>
-          <div class="card bg-white mt-10 dark:bg-mist-800">
-            {#if form?.error}
-              <Toast class="nb-toast-error" icon="✗">{form?.error}</Toast>
-            {/if}
-
-            {#if form?.success}
-              <Toast class="nb-toast-success" icon="✓"
-                >Registered successfully.</Toast
+          <Card class="mt-10">
+            {#if $message}
+              <Toast
+                class={page.status >= 400 ? "nb-toast-error" : "nb-toast-success"}
+                icon={page.status >= 400 ? "✗" : "✓"}
+                >{$message}</Toast
               >
             {/if}
-            <form
-              method="POST"
-              class="space-y-6"
-              use:enhance={() => {
-                submitting = true;
-                return async ({ update, result }) => {
-                  submitting = false;
-                  await update();
-                  if (result.type === "success") {
-                    setTimeout(()=>{
-                      currentStep = 2;
-                    }, 3500)
-                  }
-                };
-              }}
-            >
-              <div>
-                <label for="JID" class="block nb-label">Jabbra ID</label>
-                <div class="mt-2">
-                  <div class="flex flex-row justify-center items-start gap-2">
-                    <input
-                      bind:value={username}
-                      onblur={() =>
-                        (jidErrorMessage = validateJID(username)
-                          ? ""
-                          : "Invalid Jabbra ID format.")}
-                      oninput={() => (jidErrorMessage = "")}
-                      placeholder="Enter your Jabbra ID"
-                      id="JID"
-                      type="text"
-                      name="JID"
-                      class="block w-full text-sm nb-input {jidErrorMessage &&
-                        'text-red-500 border-red-500'} placeholder:text-sm"
-                    />
-                    <div class="my-auto">
-                      <div
-                        class="block font-weight-700 text-sm text-gray-500 m-0"
-                      >
-                        @basedware.xyz
+            <form method="POST" class="space-y-6" use:enhance>
+              <Field form={superform} name="JID">
+                <Control>
+                  {#snippet children({ props })}
+                    <Label class="block nb-label">Jabbra ID</Label>
+                    <div class="mt-2">
+                      <div class="flex flex-row justify-center items-start gap-2">
+                        <input
+                          {...props}
+                          bind:value={$formData.JID}
+                          placeholder="Enter your Jabbra ID"
+                          class="block w-full text-sm nb-input placeholder:text-sm"
+                        />
+                        <div class="my-auto">
+                          <div class="block font-weight-700 text-sm text-gray-500 m-0">
+                            @basedware.xyz
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  {#if jidErrorMessage}
-                    <label
-                      for="JID"
-                      class="block nb-label text-sm text-red-500 mt-2"
-                      >{jidErrorMessage}</label
-                    >
-                  {/if}
-                </div>
-              </div>
+                  {/snippet}
+                </Control>
+                <FieldErrors class="block nb-label text-sm text-red-500 mt-2" />
+              </Field>
 
               <div>
-                <label for="password" class="block nb-label">Password</label>
-                <div class="mt-2">
-                  <div class="flex flex-row justify-center items-start gap-2">
-                    <input
-                      bind:value={password}
-                      placeholder="Enter your password"
-                      id="password"
-                      type="password"
-                      name="password"
-                      autocomplete="current-password"
-                      class="block w-full text-sm nb-input placeholder:text-sm"
-                    />
-                  </div>
-                  <div class="w-full h-2 mt-2 bg-gray-200">
-                    <div
-                      class={`h-full ${passwordStrengthColor}`}
-                      style={`width: ${((passwordStrength + 1) / 5) * 100}%`}
-                    ></div>
-                  </div>
-                  <p class="text-sm text-gray-500 mt-2">{passwordFeedback}</p>
+                <Field form={superform} name="password">
+                  <Control>
+                    {#snippet children({ props })}
+                      <Label class="block nb-label">Password</Label>
+                      <div class="mt-2">
+                        <input
+                          {...props}
+                          bind:value={$formData.password}
+                          type="password"
+                          autocomplete="current-password"
+                          placeholder="Enter your password"
+                          class="block w-full text-sm nb-input placeholder:text-sm"
+                        />
+                      </div>
+                    {/snippet}
+                  </Control>
+                </Field>
+                <div class="w-full h-2 mt-2 bg-gray-200">
+                  <div
+                    class={`h-full ${passwordStrengthColor}`}
+                    style={`width: ${((passwordStrength + 1) / 5) * 100}%`}
+                  ></div>
                 </div>
+                <p class="text-sm text-gray-500 mt-2">{passwordFeedback}</p>
               </div>
 
-              <div>
-                <label for="token" class="block nb-label"
-                  >Invitation Token</label
-                >
-                <div class="mt-2">
-                  <div class="flex flex-row justify-center items-start gap-2">
-                    <input
-                      bind:value={token}
-                      readonly
-                      id="token"
-                      type="text"
-                      name="token"
-                      class="block w-full text-sm text-gray-500 nb-input placeholder:text-sm"
-                    />
-                  </div>
-                </div>
-              </div>
+              <Field form={superform} name="token">
+                <Control>
+                  {#snippet children({ props })}
+                    <Label class="block nb-label">Invitation Token</Label>
+                    <div class="mt-2">
+                      <input
+                        {...props}
+                        bind:value={$formData.token}
+                        readonly
+                        class="block w-full text-sm text-gray-500 nb-input placeholder:text-sm"
+                      />
+                    </div>
+                  {/snippet}
+                </Control>
+                <FieldErrors class="block nb-label text-sm text-red-500 mt-2" />
+              </Field>
+
               <Button
                 type="submit"
                 class="btn-blue disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-gray-500"
-                disabled={!!jidErrorMessage ||
-                  passwordStrength < 3 ||
-                  submitting}
-                >{submitting ? "Submitting..." : "Register"}</Button
+                disabled={$allErrors.length > 0 || $submitting}
+                >{$submitting ? "Submitting..." : "Register"}</Button
               >
             </form>
-          </div>
+          </Card>
         </div>
       {/if}
     </div>

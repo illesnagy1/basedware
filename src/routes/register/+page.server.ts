@@ -1,31 +1,28 @@
 import { fail } from "@sveltejs/kit";
-import zxcvbn from "zxcvbn";
+import { message, superValidate } from "sveltekit-superforms";
+import { zod4 } from "sveltekit-superforms/adapters";
 import { env } from "$env/dynamic/private";
 import { dev } from "$app/environment";
+import { registerSchema } from "./schema";
 
-
+export const load = async ({ url }) => {
+	const token = url.searchParams.get("t");
+	const form = await superValidate(token ? { token } : undefined, zod4(registerSchema), {
+		errors: false
+	});
+	return { form };
+};
 
 export const actions = {
 	default: async ({ request }) => {
-		const data = await request.formData();
-		const username = (data.get("JID") as string)?.toLowerCase().trim();
-		const password = data.get("password") as string;
-        const token = data.get("token") as string;
-		
-		if(!username) return fail(400, { error: "JID cannot be empty. Try again."})
-		if(!password) return fail(400, { error: "The password cannot be empty. Try again."})
-		if(!token) return fail(400, { error: "You must provide a token. Try again."})
+		const form = await superValidate(request, zod4(registerSchema));
 
-		if (!validateJID(username)) {
-			return fail(400, { error: "The provided JID is not valid. Try again." });
-		}
-
-		if (zxcvbn(password, [username]).score < 3) {
-			return fail(400, { error: "The provided password is not strong enough. Try again." });
+		if (!form.valid) {
+			return fail(400, { form });
 		}
 
 		if (dev) {
-			return { success: false };
+			return message(form, "Registered successfully.");
 		}
 
 		try {
@@ -35,30 +32,25 @@ export const actions = {
 					"Content-Type": "application/json",
 				},
 				body: JSON.stringify({
-					username: username,
-					password: password,
-					token: token
+					username: form.data.JID,
+					password: form.data.password,
+					token: form.data.token
 				}),
 			});
-			
+
 			if (prosody_response.status == 404) {
-				return fail(400, { error: "The provided token is not valid or expired. Try again." });
+				return message(form, "The provided token is not valid or expired. Try again.", { status: 400 });
 			} else if (prosody_response.status == 409) {
-				return fail(400, { error: "The provided JID is already registered. Try again." });
+				return message(form, "The provided JID is already registered. Try again.", { status: 400 });
 			} else if (prosody_response.status == 500) {
-				return fail(500, { error: "An internal server error occurred. Try again later." });
+				return message(form, "An internal server error occurred. Try again later.", { status: 500 });
 			}
 
-			return { success: true };
+			return message(form, "Registered successfully.");
 
 		} catch (error) {
-			return fail(500, { error: "An internal server error occurred. Try again later." });
+			return message(form, "An internal server error occurred. Try again later.", { status: 500 });
 		}
 
 	},
-}; 
-
-function validateJID(username: string): boolean {
-	const jidRegex = /^[^"&'/:<>@\s\x00-\x1F\x7F]{1,1023}?$/;
-    return jidRegex.test(username);
-}
+};
