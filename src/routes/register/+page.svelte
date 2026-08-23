@@ -142,7 +142,7 @@
                           class="block w-full text-sm nb-input placeholder:text-sm"
                         />
                         <div class="my-auto">
-                          <div class="block font-weight-700 text-sm text-gray-500 m-0">
+                          <div class="block font-weight-700 text-sm text-gray-600 dark:text-gray-400 m-0">
                             @basedware.xyz
                           </div>
                         </div>
@@ -177,7 +177,7 @@
                     style={`width: ${((passwordStrength + 1) / 5) * 100}%`}
                   ></div>
                 </div>
-                <p class="text-sm text-gray-500 mt-2">{passwordFeedback}</p>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">{passwordFeedback}</p>
               </div>
 
               <Field form={superform} name="token">
@@ -189,7 +189,7 @@
                         {...props}
                         bind:value={$formData.token}
                         readonly
-                        class="block w-full text-sm text-gray-500 nb-input placeholder:text-sm"
+                        class="block w-full text-sm text-gray-600 dark:text-gray-400 nb-input placeholder:text-sm"
                       />
                     </div>
                   {/snippet}
@@ -225,7 +225,9 @@
               <userOS.icon size={24} />
             </div>
           {/if}
+          <label for="platform-filter" class="sr-only">Filter clients by platform</label>
           <select
+            id="platform-filter"
             bind:value={filterOS}
             class="nb-select ml-auto bg-white dark:bg-mist-800"
           >

@@ -22,7 +22,7 @@
       <platform.icon size={32} />
     {/each}
   </div>
-  <p class="timeline-text text-gray-500 mt-1">
+  <p class="timeline-text text-gray-600 dark:text-gray-400 mt-1">
     {app.description}
   </p>
   <Button
