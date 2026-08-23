@@ -4,11 +4,13 @@
   import Button from "$lib/Button.svelte";
   import { enhance } from "$app/forms";
   import { page } from "$app/state";
-  import { applications } from "./mock_apps.js";
+  import { applications } from "$lib/apps";
+  import AppCard from "$lib/apps/AppCard.svelte";
+  import { Platform, platforms } from "$lib/platforms";
   import { onMount } from "svelte";
   import type { Attachment } from 'svelte/attachments';
-  import { fly, slide } from "svelte/transition";
-  
+  import { slide } from "svelte/transition";
+
   const tokenURL = page.url.searchParams.get("t");
 
   let { form } = $props();
@@ -50,22 +52,22 @@
     }
   });
 
-  function detectOS(): string {
-    let OSName = "Unknown OS";
-    let app = navigator.userAgent
-    if (app?.indexOf("Win") != -1) OSName = "Windows";
-    if (app?.indexOf("Mac") != -1) OSName = "MacOS";
-    if (app?.indexOf("Linux") != -1) OSName = "Linux";
-    if (app?.indexOf("iOS") != -1) OSName = "iOS";
-    if (app?.indexOf("Android") != -1) OSName = "Android";
-    return OSName;
+  function detectOS(): Platform | undefined {
+    let ua = navigator.userAgent.toLowerCase();
+    if (ua.includes("win")) return Platform.Windows;
+    if (ua.includes("mac")) return Platform.macOS;
+    if (ua.includes("linux")) return Platform.Linux;
+    if (ua.includes('iphone') || ua.includes('ipad')) return Platform.iOS;
+    if (ua.includes("android")) return Platform.Android;
+    return undefined;
   }
 
-  let userOS = $state("");
-  let filterOS: string = $state("All platforms");
+  let userOS: Platform | undefined = $state(undefined);
+  let filterOS: Platform | "All platforms" = $state("All platforms");
+
   onMount(() => {
     userOS = detectOS();
-    filterOS = userOS;
+    if (userOS) filterOS = userOS;
   });
 
   let filteredApplications = $derived.by(() => {
@@ -73,19 +75,19 @@
       return applications;
     }
     return applications.filter((app) =>
-      app.platform.some((platform) => platform === filterOS),
+      app.platforms.some((platform) => platform === filterOS),
     );
   });
 
   let currentStep = $state(1);
 
-function pickaboo(options: { threshold?: number } = {}): Attachment {
+  function pickaboo(options: { threshold?: number } = {}): Attachment {
     return (node) => {
       const threshold = options.threshold || 0.15;
 
       const observer = new IntersectionObserver((entries) => {
         const entry = entries[0];
-        
+
         if (entry.isIntersecting && currentStep === 2) {
           currentStep = 3;
         }
@@ -98,7 +100,8 @@ function pickaboo(options: { threshold?: number } = {}): Attachment {
 
       return () => observer.disconnect();
     };
-  }</script>
+  }
+</script>
 
 <div class="flex min-h-full flex-col px-6 py-12 lg:px-8">
   <div class="timeline md:w-3/4">
@@ -133,7 +136,7 @@ function pickaboo(options: { threshold?: number } = {}): Attachment {
                   if (result.type === "success") {
                     setTimeout(()=>{
                       currentStep = 2;
-                    }, 3500) 
+                    }, 3500)
                   }
                 };
               }}
@@ -240,18 +243,9 @@ function pickaboo(options: { threshold?: number } = {}): Attachment {
             available for different platforms. Here is our recommendation:
           </p>
           {#if userOS}
-            <div class="flex flex-row gap-2">
-              <p>Your detected platform: {userOS}</p>
-              <img
-                src={`/icons/${userOS.toLowerCase() + "_dark.svg"}`}
-                alt={userOS}
-                class="block w-6 h-6 ml-2 dark:hidden"
-              />
-              <img
-                src={`/icons/${userOS.toLowerCase() + "_white.svg"}`}
-                alt={userOS}
-                class="hidden w-6 h-6 mr-1 dark:block"
-              />
+            <div class="flex flex-row items-center gap-2">
+              <p>Your detected platform: {userOS.name}</p>
+              <userOS.icon size={24} />
             </div>
           {/if}
           <select
@@ -259,50 +253,16 @@ function pickaboo(options: { threshold?: number } = {}): Attachment {
             class="nb-select ml-auto bg-white dark:bg-mist-800"
           >
             <option value="All platforms">All Platforms</option>
-            <option value="Windows">Windows</option>
-            <option value="Linux">Linux</option>
-            <option value="macOS">MacOS</option>
-            <option value="iOS">iOS</option>
-            <option value="Android">Android</option>
+            {#each platforms as platform}
+              <option value={platform}>{platform.name}</option>
+            {/each}
           </select>
 
           <div
             class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4"
           >
             {#each filteredApplications as app}
-              <div class="timeline-app bg-white dark:bg-mist-800">
-                <img
-                  src={app.icon}
-                  alt={app.name}
-                  class="w-32 h-32 object-contain"
-                />
-                <h4 class="timeline-title">{app.name}</h4>
-                <div class="flex flex-row items-center gap-2 mt-1 align-center">
-                  {#each app.platform as platform}
-                    <img
-                      src={`/icons/${platform.toLowerCase() + "_dark.svg"}`}
-                      alt={platform}
-                      class="block w-6 h-6 mr-1 dark:hidden"
-                    />
-                    <img
-                      src={`/icons/${platform.toLowerCase() + "_white.svg"}`}
-                      alt={platform}
-                      class="hidden w-6 h-6 mr-1 dark:block"
-                    />
-                  {/each}
-                </div>
-                <p class="timeline-text text-gray-500 mt-1">
-                  {app.description}
-                </p>
-                <a
-                  href={app.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="nb-links mt-auto"
-                >
-                  Download
-                </a>
-              </div>
+              <AppCard {app} />
             {/each}
           </div>
           <Button class="btn-yellow mt-5" onclick={() => { currentStep = 3; }}>I have a client! Whats next?</Button>

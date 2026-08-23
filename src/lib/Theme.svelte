@@ -44,7 +44,7 @@
 </svelte:head>
 
 <button
-    class="btn-sm w-6 h-6 p-0 m-4 hover:bg-yellow"
+    class="btn-sm size-6 p-0 m-4 hover:bg-yellow"
     onclick={() => setMode(!dark)}
     title="Toggle theme"
 >

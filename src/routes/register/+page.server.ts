@@ -1,6 +1,7 @@
 import { fail } from "@sveltejs/kit";
 import zxcvbn from "zxcvbn";
 import { env } from "$env/dynamic/private";
+import { dev } from "$app/environment";
 
 
 
@@ -21,6 +22,10 @@ export const actions = {
 
 		if (zxcvbn(password, [username]).score < 3) {
 			return fail(400, { error: "The provided password is not strong enough. Try again." });
+		}
+
+		if (dev) {
+			return { success: false };
 		}
 
 		try {
