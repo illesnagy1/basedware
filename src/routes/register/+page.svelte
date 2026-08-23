@@ -100,6 +100,14 @@
   }
 </script>
 
+<svelte:head>
+    <title>Register - ALTERCOM.</title>
+    <meta
+        name="description"
+        content="Create your Jabbra ID and get set up with an XMPP client to start chatting on decentralized, open platforms."
+    />
+</svelte:head>
+
 <div class="flex min-h-full flex-col px-6 py-12 lg:px-8">
   <div class="timeline md:w-3/4">
     <div class="timeline-item">
