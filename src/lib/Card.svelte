@@ -1,9 +1,9 @@
 <script lang="ts">
-    import type { Snippet } from 'svelte';
+  import type { Snippet } from 'svelte';
 
-    let { class: className = '', children }: { class?: string; children: Snippet } = $props();
+  let { class: className = '', children }: { class?: string; children: Snippet } = $props();
 </script>
 
 <div class="card {className}">
-    {@render children()}
+  {@render children()}
 </div>
