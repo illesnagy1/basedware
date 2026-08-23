@@ -14,7 +14,7 @@
   <img src={app.icon} alt={app.name} class="size-32 object-contain" />
   <h4 class="timeline-title">{app.name}</h4>
   <div class="align-center mt-1 flex flex-row items-center gap-2">
-    {#each app.platforms as platform}
+    {#each app.platforms as platform (platform.name)}
       <platform.icon size={32} />
     {/each}
   </div>

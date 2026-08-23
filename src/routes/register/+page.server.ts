@@ -51,7 +51,7 @@ export const actions = {
       }
 
       return message(form, 'Registered successfully.');
-    } catch (error) {
+    } catch {
       return message(form, 'An internal server error occurred. Try again later.', { status: 500 });
     }
   },

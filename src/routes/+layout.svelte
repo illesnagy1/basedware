@@ -6,6 +6,7 @@
   import '@fontsource/syne/800.css';
   import '@fontsource/space-grotesk/700.css';
   import '@fontsource/inter/500.css';
+  import { resolve } from '$app/paths';
   import Progress from '$lib/Progress.svelte';
   import Theme from '$lib/Theme.svelte';
   import '../app.css';
@@ -23,7 +24,7 @@
 <nav class="nav">
   <div class="flex w-full items-center justify-between px-4">
     <Theme />
-    <a href="/" class="nav-logo">
+    <a href={resolve('/')} class="nav-logo">
       ALTERCOM
       <span class="text-red-500">.</span>
     </a>

@@ -8,7 +8,6 @@
   import Toast from '$lib/Toast.svelte';
   import { Control, Field, FieldErrors, Label } from 'formsnap';
   import { onMount } from 'svelte';
-  import type { Attachment } from 'svelte/attachments';
   import { slide } from 'svelte/transition';
   import { superForm } from 'sveltekit-superforms';
   import { zod4Client } from 'sveltekit-superforms/adapters';
@@ -65,30 +64,6 @@
     }
     return applications.filter((app) => app.platforms.some((platform) => platform === filterOS));
   });
-
-  function pickaboo(options: { threshold?: number } = {}): Attachment {
-    return (node) => {
-      const threshold = options.threshold || 0.15;
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          const entry = entries[0];
-
-          if (entry.isIntersecting && currentStep === 2) {
-            currentStep = 3;
-          }
-          if (!entry.isIntersecting && currentStep === 3) {
-            currentStep = 2;
-          }
-        },
-        { ...options, threshold },
-      );
-
-      observer.observe(node);
-
-      return () => observer.disconnect();
-    };
-  }
 </script>
 
 <svelte:head>
@@ -220,13 +195,13 @@
           <label for="platform-filter" class="sr-only">Filter clients by platform</label>
           <select id="platform-filter" bind:value={filterOS} class="nb-select ml-auto bg-white dark:bg-mist-800">
             <option value="All platforms">All Platforms</option>
-            {#each platforms as platform}
+            {#each platforms as platform (platform.name)}
               <option value={platform}>{platform.name}</option>
             {/each}
           </select>
 
           <div class="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {#each filteredApplications as app}
+            {#each filteredApplications as app (app.name)}
               <AppCard {app} />
             {/each}
           </div>

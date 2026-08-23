@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount, type Snippet } from 'svelte';
-  import { fly, slide } from 'svelte/transition';
+  import { slide } from 'svelte/transition';
 
   let {
     class: className = '',
