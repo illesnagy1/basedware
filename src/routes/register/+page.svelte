@@ -18,6 +18,7 @@
 
   let currentStep = $state(1);
 
+  // svelte-ignore state_referenced_locally
   const superform = superForm(data.form, {
     validators: zod4Client(registerSchema),
     resetForm: false,
@@ -35,6 +36,7 @@
   const passwordFeedback = $derived(passwordResult.feedback.suggestions.join('\n'));
   const passwordStrengthColors = ['bg-red-500', 'bg-orange-500', 'bg-yellow-500', 'bg-green-500', 'bg-blue-500'];
   const passwordStrengthColor = $derived(passwordStrengthColors[passwordStrength] ?? 'bg-gray-500');
+  const passwordStrengthBarWidth = $derived(((passwordStrength + 1) / 5) * 100);
 
   function detectOS(): Platform | undefined {
     const ua = navigator.userAgent.toLowerCase();
@@ -133,10 +135,7 @@
                   </Control>
                 </Field>
                 <div class="mt-2 h-2 w-full bg-gray-200">
-                  <div
-                    class={`h-full ${passwordStrengthColor}`}
-                    style={`width: ${((passwordStrength + 1) / 5) * 100}%`}
-                  ></div>
+                  <div class={['h-full', passwordStrengthColor]} style:width="{passwordStrengthBarWidth}%"></div>
                 </div>
                 <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">{passwordFeedback}</p>
               </div>

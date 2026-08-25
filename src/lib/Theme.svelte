@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import { on } from 'svelte/events';
 
   const media = () => window.matchMedia('(prefers-color-scheme: dark)');
 
@@ -28,8 +29,7 @@
       if (!localStorage.getItem('theme')) apply(matches);
     };
 
-    matcher.addEventListener('change', handleChange);
-    return () => matcher.removeEventListener('change', handleChange);
+    return on(matcher, 'change', handleChange);
   });
 </script>
 
@@ -45,7 +45,8 @@
 </svelte:head>
 
 <button
-  class="btn-sm hover:bg-yellow m-4 size-6 shrink-0 p-0"
+  class="btn-sm m-4 size-6 shrink-0 p-0 hover:bg-yellow"
   onclick={() => setMode(!dark)}
+  type="button"
   title="Toggle theme"
 ></button>

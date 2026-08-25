@@ -39,7 +39,7 @@
 
 <section
   id="introduction"
-  class={`bg-bg flex min-w-full flex-row justify-center gap-4 border-b-5 border-black px-2 py-10 dark:border-white
+  class={`flex min-w-full flex-row justify-center gap-4 border-b-5 border-black bg-bg px-2 py-10 dark:border-white
     dark:bg-mist-800 dark:text-white`}
 >
   <div class="flex w-7/8 flex-col justify-center gap-4 p-10 md:w-5/8">
@@ -118,12 +118,18 @@
       <p>
         The Israeli Pegasus spyware was used to target <b>more than 300 Hungarian phone numbers</b>
         of journalists, activists, and opposition figures in Hungary and other countries.
-        <a href="https://www.europarl.europa.eu/doceo/document/A-9-2023-0189_HU.html" target="_blank" class="nb-links">
+        <a
+          href="https://www.europarl.europa.eu/doceo/document/A-9-2023-0189_HU.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="nb-links"
+        >
           European Parliament Report
         </a>
         <a
           href="https://www.naih.hu/adatvedelmi-jelentesek/file/486-jelentes-a-nemzeti-adatvedelmi-es-informaciosszabadsag-hatosag-hivatalbol-inditott-vizsgalatanak-megallapitasai-a-pegasus-kemszoftver-magyarorszagon-torteno-alkalmazasaval-osszuefueggesben"
           target="_blank"
+          rel="noopener noreferrer"
           class="nb-links"
         >
           NAIH Official Statement
@@ -311,7 +317,9 @@
             Humans become their own censors, self-policing themselves due to the psychological effects of surveillance.
           </span>
           The
-          <a href="https://en.wikipedia.org/wiki/Panopticon" target="_blank" class="nb-links">Panopticon</a>
+          <a href="https://en.wikipedia.org/wiki/Panopticon" target="_blank" rel="noopener noreferrer" class="nb-links">
+            Panopticon
+          </a>
           is a prison design first proposed by Jeremy Bentham, where inmates become docile simply because of the ever-watching
           guard tower.
         </p>
@@ -319,7 +327,7 @@
       <Card class="">
         <span class="badge badge-yellow">Chat Control</span>
         <p class="highlight-blue">
-          <a href="https://www.patrick-breyer.de/en/posts/chat-control/" target="_blank">
+          <a href="https://www.patrick-breyer.de/en/posts/chat-control/" target="_blank" rel="noopener noreferrer">
             based on the work of Patrick Breyer, digital activist, former Member of EU Parliament
           </a>
         </p>
@@ -388,6 +396,7 @@
           Commission itself. <a
             href="https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52025DC0740"
             target="_blank"
+            rel="noopener noreferrer"
             class="nb-links"
           >
             In their own report
@@ -433,7 +442,7 @@
   </div>
 </section>
 <section
-  class={`bg-bg flex min-w-full flex-row justify-center gap-4 border-b-5 border-black px-2 py-4 dark:border-white
+  class={`flex min-w-full flex-row justify-center gap-4 border-b-5 border-black bg-bg px-2 py-4 dark:border-white
     dark:bg-mist-800 dark:text-white`}
 >
   <div class="flex w-7/8 flex-col justify-center gap-4 p-10 md:w-5/8">

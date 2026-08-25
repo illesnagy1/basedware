@@ -42,6 +42,15 @@ export default defineConfig(
     rules: {
       'svelte/no-unused-class-name': 'off',
       'svelte/sort-attributes': 'off',
+      'svelte/no-navigation-without-base': 'off',
+      'svelte/prefer-destructured-store-props': 'off',
+      'svelte/no-inline-styles': 'off',
+      'svelte/block-lang': [
+        'error',
+        {
+          script: ['ts'],
+        },
+      ],
     },
   },
 );

@@ -10,4 +10,4 @@
   }}
 />
 
-<div class="bg-pink fixed left-0 z-50 h-2" style="width: {scrolled}%"></div>
+<div class="fixed left-0 z-50 h-2 bg-pink" style:width="{scrolled}%"></div>
