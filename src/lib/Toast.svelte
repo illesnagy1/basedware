@@ -2,7 +2,7 @@
   import { onMount, type Snippet } from 'svelte';
   import { slide } from 'svelte/transition';
 
-  let {
+  const {
     class: className = '',
     children,
     icon,

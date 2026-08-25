@@ -4,7 +4,7 @@
     size?: string | number;
   }
 
-  let { color = 'currentColor', size = 24 }: Props = $props();
+  const { color = 'currentColor', size = 24 }: Props = $props();
 </script>
 
 <svg fill={color} width={size} height={size} role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

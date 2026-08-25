@@ -7,7 +7,7 @@
     app: Application;
   }
 
-  let { app }: Props = $props();
+  const { app }: Props = $props();
 </script>
 
 <Card>

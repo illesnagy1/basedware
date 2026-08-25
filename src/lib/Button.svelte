@@ -1,19 +1,15 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
 
-  let {
-    href,
-    size = 'default',
-    class: className = '',
-    children,
-    ...rest
-  }: {
+  interface ButtonProps {
     href?: string;
     size?: 'default' | 'sm';
     class?: string;
     children: Snippet;
     [key: string]: unknown;
-  } = $props();
+  }
+
+  const { href, size = 'default', class: className = '', children, ...rest }: ButtonProps = $props();
 
   const base = $derived(size === 'sm' ? 'btn-sm' : 'btn');
 </script>

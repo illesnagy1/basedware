@@ -14,7 +14,7 @@
   import zxcvbn from 'zxcvbn';
   import { registerSchema } from './schema';
 
-  let { data } = $props();
+  const { data } = $props();
 
   let currentStep = $state(1);
 
@@ -30,23 +30,19 @@
     },
   });
   const { form: formData, message, enhance, submitting, allErrors } = superform;
-
-  let passwordStrength = $derived.by(() => {
-    let result = zxcvbn($formData.password, [$formData.JID]);
-    return result.score;
-  });
-  let passwordFeedback = $derived(zxcvbn($formData.password, [$formData.JID]).feedback.suggestions.join('\n'));
-
+  const passwordResult = $derived(zxcvbn($formData.password, [$formData.JID]));
+  const passwordStrength = $derived(passwordResult.score);
+  const passwordFeedback = $derived(passwordResult.feedback.suggestions.join('\n'));
   const passwordStrengthColors = ['bg-red-500', 'bg-orange-500', 'bg-yellow-500', 'bg-green-500', 'bg-blue-500'];
-  let passwordStrengthColor = $derived(passwordStrengthColors[passwordStrength] ?? 'bg-gray-500');
+  const passwordStrengthColor = $derived(passwordStrengthColors[passwordStrength] ?? 'bg-gray-500');
 
   function detectOS(): Platform | undefined {
-    let ua = navigator.userAgent.toLowerCase();
+    const ua = navigator.userAgent.toLowerCase();
     if (ua.includes('win')) return Platform.Windows;
-    if (ua.includes('mac')) return Platform.macOS;
+    if (ua.includes('android')) return Platform.Android;
     if (ua.includes('linux')) return Platform.Linux;
     if (ua.includes('iphone') || ua.includes('ipad')) return Platform.iOS;
-    if (ua.includes('android')) return Platform.Android;
+    if (ua.includes('mac')) return Platform.macOS;
     return undefined;
   }
 
@@ -58,7 +54,7 @@
     if (userOS) filterOS = userOS;
   });
 
-  let filteredApplications = $derived.by(() => {
+  const filteredApplications = $derived.by(() => {
     if (filterOS === 'All platforms') {
       return applications;
     }
@@ -126,11 +122,11 @@
                       <div class="mt-2">
                         <input
                           {...props}
-                          bind:value={$formData.password}
-                          type="password"
-                          autocomplete="current-password"
-                          placeholder="Enter your password"
                           class="nb-input block w-full text-sm placeholder:text-sm"
+                          autocomplete="new-password"
+                          placeholder="Enter your password"
+                          type="password"
+                          bind:value={$formData.password}
                         />
                       </div>
                     {/snippet}

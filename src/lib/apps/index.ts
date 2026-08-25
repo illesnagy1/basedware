@@ -7,13 +7,13 @@ import monal from './monal.svg';
 import siskin from './siskin.png';
 import snikket from './snikket.svg';
 
-export type Application = {
+export interface Application {
   name: string;
   description: string;
   platforms: Platform[];
   url: string;
   icon: string;
-};
+}
 
 export const applications: Application[] = [
   {

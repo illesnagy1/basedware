@@ -11,7 +11,7 @@
   import Theme from '$lib/Theme.svelte';
   import '../app.css';
 
-  let { children } = $props();
+  const { children } = $props();
 </script>
 
 <svelte:head>

@@ -2,7 +2,7 @@ import * as z from 'zod';
 import zxcvbn from 'zxcvbn';
 
 // eslint-disable-next-line no-control-regex -- excluding control characters from JIDs is intentional
-const jidRegex = /^[^"&'/:<>@\s\x00-\x1F\x7F]{0,1023}$/;
+const jidRegex = /^[^"&'/:<>@\s\x00-\x1F\x7F]{0,1023}$/u;
 
 export const registerSchema = z
   .object({
