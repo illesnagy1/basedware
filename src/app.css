@@ -17,36 +17,36 @@ a {
 
 @theme {
   --font-heading: 'Space Grotesk';
-  --border: 3px solid var(--ink);
-  --border-thin: 2px solid var(--ink);
-  --border-thick: 4px solid var(--ink);
-  --shadow-sm: 3px 3px 0 0 var(--ink);
-  --shadow: 5px 5px 0 0 var(--ink);
-  --shadow-lg: 8px 8px 0 0 var(--ink);
-  --shadow-xl: 12px 12px 0 0 var(--ink);
+  --border: 3px solid var(--color-ink);
+  --border-thin: 2px solid var(--color-ink);
+  --border-thick: 4px solid var(--color-ink);
+  --shadow-sm: 3px 3px 0 0 var(--color-ink);
+  --shadow: 5px 5px 0 0 var(--color-ink);
+  --shadow-lg: 8px 8px 0 0 var(--color-ink);
+  --shadow-xl: 12px 12px 0 0 var(--color-ink);
   --radius: 0;
-  --ink: #000;
-  --text: #000;
-  --surface: #fff;
-  --surface-2: #f5f0e8;
-  --black: #000;
-  --white: #fff;
-  --bg: #fffdf5;
-  --bg-warm: #f5f0e8;
-  --yellow: #ffd23f;
-  --yellow-light: oklch(94.5% 0.129 101.54);
-  --pink: #ff6b6b;
-  --pink-light: oklch(81% 0.117 11.638);
-  --blue: #74b9ff;
-  --blue-light: oklch(80.9% 0.105 251.813);
-  --green: #88d498;
-  --green-light: oklch(87.1% 0.15 154.449);
-  --orange: #ffa552;
-  --orange-light: oklch(83.7% 0.128 66.29);
-  --purple: #b8a9fa;
-  --purple-light: oklch(82.7% 0.119 306.383);
-  --cyan: #7fdbda;
-  --red: #ff4444;
+  --color-ink: #000;
+  --color-text: #000;
+  --color-surface: #fff;
+  --color-surface-2: #f5f0e8;
+  --color-black: #000;
+  --color-white: #fff;
+  --color-bg: #fffdf5;
+  --color-bg-warm: #f5f0e8;
+  --color-yellow: #ffd23f;
+  --color-yellow-light: oklch(94.5% 0.129 101.54);
+  --color-pink: #ff6b6b;
+  --color-pink-light: oklch(81% 0.117 11.638);
+  --color-blue: #74b9ff;
+  --color-blue-light: oklch(80.9% 0.105 251.813);
+  --color-green: #88d498;
+  --color-green-light: oklch(87.1% 0.15 154.449);
+  --color-orange: #ffa552;
+  --color-orange-light: oklch(83.7% 0.128 66.29);
+  --color-purple: #b8a9fa;
+  --color-purple-light: oklch(82.7% 0.119 306.383);
+  --color-cyan: #7fdbda;
+  --color-red: #ff4444;
   --font-display: 'Syne', sans-serif;
   --font-heading: 'Space Grotesk', sans-serif;
   --font-body: 'Inter', sans-serif;
@@ -62,18 +62,18 @@ a {
 }
 
 .dark {
-  --ink: #f3f3f6;
-  --text: #ececed;
-  --surface: #1f1e28;
-  --surface-2: #2b2a37;
-  --bg: #14131a;
-  --bg-warm: #2b2a37;
-  --yellow-light: #8e7e3e;
-  --pink-light: oklch(45.5% 0.188 13.697);
-  --blue-light: oklch(42.4% 0.199 265.638);
-  --green-light: oklch(44.8% 0.119 151.328);
-  --orange-light: oklch(47% 0.157 37.304);
-  --purple-light: oklch(43.8% 0.218 303.724);
+  --color-ink: #f3f3f6;
+  --color-text: #ececed;
+  --color-surface: #1f1e28;
+  --color-surface-2: #2b2a37;
+  --color-bg: #14131a;
+  --color-bg-warm: #2b2a37;
+  --color-yellow-light: #8e7e3e;
+  --color-pink-light: oklch(45.5% 0.188 13.697);
+  --color-blue-light: oklch(42.4% 0.199 265.638);
+  --color-green-light: oklch(44.8% 0.119 151.328);
+  --color-orange-light: oklch(47% 0.157 37.304);
+  --color-purple-light: oklch(43.8% 0.218 303.724);
 }
 
 html {
@@ -81,8 +81,8 @@ html {
 }
 
 body {
-  background-color: var(--bg);
-  color: var(--text);
+  background-color: var(--color-bg);
+  color: var(--color-text);
   font-family: var(--font-body);
   font-size: 1.2rem;
 
@@ -130,7 +130,7 @@ h3 {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: var(--surface);
+    background: var(--color-surface);
     border-bottom: var(--border-thick);
     padding: var(--space-xs) var(--space-xs);
   }
@@ -180,7 +180,7 @@ h3 {
     top: 100%;
     left: 0;
     right: 0;
-    background: var(--surface);
+    background: var(--color-surface);
     border-bottom: var(--border-thick);
     padding: var(--space-sm) 0;
     z-index: 999;
@@ -195,21 +195,21 @@ h3 {
   }
 
   .nav-links a.active {
-    background: var(--yellow);
-    border-color: var(--black);
+    background: var(--color-yellow);
+    border-color: var(--color-black);
     box-shadow: var(--shadow-sm);
   }
 
   .nav.is-scrolled {
-    box-shadow: 0 4px 0 0 var(--ink);
+    box-shadow: 0 4px 0 0 var(--color-ink);
   }
 
   .btn {
     border: var(--border);
     border-radius: 0;
     box-shadow: var(--shadow);
-    color: var(--ink);
-    background-color: var(--bg);
+    color: var(--color-ink);
+    background-color: var(--color-bg);
     padding: var(--space-xs) var(--space-sm);
     font-weight: 700;
     cursor: pointer;
@@ -219,33 +219,33 @@ h3 {
   }
 
   .btn-yellow {
-    background-color: var(--yellow);
-    color: var(--black);
+    background-color: var(--color-yellow);
+    color: var(--color-black);
   }
 
   .btn-blue {
-    background-color: var(--blue);
-    color: var(--black);
+    background-color: var(--color-blue);
+    color: var(--color-black);
   }
 
   .btn-pink {
-    background-color: var(--pink);
-    color: var(--black);
+    background-color: var(--color-pink);
+    color: var(--color-black);
   }
 
   .btn-green {
-    background-color: var(--green);
-    color: var(--black);
+    background-color: var(--color-green);
+    color: var(--color-black);
   }
 
   .btn-black {
-    background-color: var(--black);
-    color: var(--white);
+    background-color: var(--color-black);
+    color: var(--color-white);
   }
 
   .btn-purple {
-    background-color: var(--purple);
-    color: var(--black);
+    background-color: var(--color-purple);
+    color: var(--color-black);
   }
 
   .btn:hover {
@@ -259,7 +259,7 @@ h3 {
   }
 
   .btn:focus-visible {
-    outline: 3px solid var(--blue);
+    outline: 3px solid var(--color-blue);
     outline-offset: 3px;
   }
 
@@ -267,7 +267,7 @@ h3 {
     border: var(--border-thin);
     border-radius: 0;
     box-shadow: var(--shadow-sm);
-    color: var(--black);
+    color: var(--color-black);
     padding: var(--space-xs) var(--space-sm);
     font-weight: 700;
     cursor: pointer;
@@ -287,15 +287,15 @@ h3 {
   }
 
   .btn-sm:focus-visible {
-    outline: var(--blue);
+    outline: var(--color-blue);
     outline-offset: 3px;
   }
 
   .card {
     border: var(--border-thick);
     box-shadow: var(--shadow);
-    background-color: var(--bg);
-    color: var(--ink);
+    background-color: var(--color-bg);
+    color: var(--color-ink);
     padding: var(--space-md);
     margin-top: var(--space-sm);
     margin-bottom: var(--space-md);
@@ -310,27 +310,27 @@ h3 {
   }
 
   .card-yellow {
-    background-color: var(--yellow-light);
+    background-color: var(--color-yellow-light);
   }
 
   .card-purple {
-    background-color: var(--purple-light);
+    background-color: var(--color-purple-light);
   }
 
   .card-green {
-    background-color: var(--green-light);
+    background-color: var(--color-green-light);
   }
 
   .card-blue {
-    background-color: var(--blue-light);
+    background-color: var(--color-blue-light);
   }
 
   .card-pink {
-    background-color: var(--pink-light);
+    background-color: var(--color-pink-light);
   }
 
   .card-orange {
-    background-color: var(--orange-light);
+    background-color: var(--color-orange-light);
   }
 
   .nb-input,
@@ -346,7 +346,7 @@ h3 {
 
   .nb-input:focus,
   .nb-select:focus {
-    outline: 3px solid var(--blue);
+    outline: 3px solid var(--color-blue);
     outline-offset: 2px;
     box-shadow: var(--shadow);
     transform: translate(-1px, -1px);
@@ -362,7 +362,7 @@ h3 {
     padding-right: 2.5rem;
   }
   .dark .nb-select {
-    color: var(--text);
+    color: var(--color-text);
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23f3f3f6' stroke-width='2' fill='none'/%3E%3C/svg%3E");
   }
 
@@ -388,19 +388,19 @@ h3 {
   }
 
   .nb-toast-success {
-    background: var(--green);
+    background: var(--color-green);
   }
 
   .nb-toast-error {
-    background: var(--pink);
+    background: var(--color-pink);
   }
 
   .nb-toast-info {
-    background: var(--blue);
+    background: var(--color-blue);
   }
 
   .nb-toast-warning {
-    background: var(--yellow);
+    background: var(--color-yellow);
   }
 
   .nb-toast-icon {
@@ -411,7 +411,7 @@ h3 {
   .nb-toast-dismiss {
     margin-left: auto;
     background: none;
-    border: 2px solid var(--ink);
+    border: 2px solid var(--color-ink);
     font-size: 0.9rem;
     cursor: pointer;
     font-weight: 700;
@@ -429,44 +429,44 @@ h3 {
   }
 
   .highlight-yellow {
-    background-color: var(--yellow);
+    background-color: var(--color-yellow);
     padding: 1px;
-    color: var(--black);
+    color: var(--color-black);
     border-bottom: var(--border-thin);
   }
 
   .highlight-pink {
-    background-color: var(--pink);
+    background-color: var(--color-pink);
     padding: 1px;
-    color: var(--black);
+    color: var(--color-black);
     border-bottom: var(--border-thin);
   }
 
   .highlight-blue {
-    background-color: var(--blue);
+    background-color: var(--color-blue);
     padding: 1px;
-    color: var(--black);
+    color: var(--color-black);
     border-bottom: var(--border-thin);
   }
 
   .highlight-black {
-    background-color: var(--black);
+    background-color: var(--color-black);
     padding: 1px;
-    color: var(--white);
+    color: var(--color-white);
     border-bottom: var(--border-thin);
   }
 
   .highlight-white {
-    background-color: var(--white);
+    background-color: var(--color-white);
     padding: 1px;
-    color: var(--black);
+    color: var(--color-black);
     border-bottom: var(--border-thin);
   }
 
   .highlight-green {
-    background-color: var(--green);
+    background-color: var(--color-green);
     padding: 1px;
-    color: var(--black);
+    color: var(--color-black);
     border-bottom: var(--border-thin);
   }
 
@@ -476,8 +476,8 @@ h3 {
   }
 
   .nb-links:hover {
-    background-color: var(--yellow);
-    color: var(--black);
+    background-color: var(--color-yellow);
+    color: var(--color-black);
   }
 
   .badge {
@@ -489,38 +489,38 @@ h3 {
     letter-spacing: 0.05em;
     border: var(--border-thin);
     box-shadow: var(--shadow-sm);
-    background: var(--surface);
+    background: var(--color-surface);
     margin-bottom: var(--space-sm);
-    color: var(--black);
+    color: var(--color-black);
   }
 
   .badge-yellow {
-    background: var(--yellow);
+    background: var(--color-yellow);
   }
 
   .badge-black {
-    background: var(--black);
-    color: var(--white);
+    background: var(--color-black);
+    color: var(--color-white);
   }
 
   .badge-pink {
-    background: var(--pink);
+    background: var(--color-pink);
   }
 
   .badge-blue {
-    background: var(--blue);
+    background: var(--color-blue);
   }
 
   .badge-green {
-    background: var(--green);
+    background: var(--color-green);
   }
 
   .badge-orange {
-    background: var(--orange);
+    background: var(--color-orange);
   }
 
   .badge-purple {
-    background: var(--purple);
+    background: var(--color-purple);
   }
 
   .timeline {
@@ -535,7 +535,7 @@ h3 {
     top: 0;
     bottom: 0;
     width: 4px;
-    background: var(--ink);
+    background: var(--color-ink);
   }
 
   .timeline-item {
@@ -553,7 +553,7 @@ h3 {
     width: 20px;
     height: 20px;
     border: var(--border);
-    background: var(--yellow);
+    background: var(--color-yellow);
     transform: translateX(-8px);
   }
 
@@ -565,8 +565,8 @@ h3 {
     margin-bottom: 0.25rem;
     display: inline-block;
     padding: 0.15rem 0.5rem;
-    background: var(--black);
-    color: var(--white);
+    background: var(--color-black);
+    color: var(--color-white);
   }
 
   .timeline-title {
@@ -585,8 +585,8 @@ h3 {
   .timeline-app {
     border: var(--border-thin);
     box-shadow: var(--shadow-sm);
-    background-color: var(--bg);
-    color: var(--ink);
+    background-color: var(--color-bg);
+    color: var(--color-ink);
     padding: var(--space-sm);
     margin-top: var(--space-sm);
     transition:
