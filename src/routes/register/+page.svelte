@@ -26,7 +26,7 @@
       if (form.valid) {
         setTimeout(() => {
           currentStep = 2;
-        }, 3500);
+        }, 1750);
       }
     },
   });
@@ -84,7 +84,7 @@
             Your Jabbra ID is your unique identifier on the platform. It should be memorable and easy to share with
             others.
           </p>
-          <Card class="mt-10">
+          <Card class="mt-10 bg-white dark:bg-mist-800">
             {#if $message}
               <Toast
                 class={page.status >= 400 ? 'nb-toast-error' : 'nb-toast-success'}

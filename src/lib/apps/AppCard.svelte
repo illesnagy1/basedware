@@ -10,7 +10,7 @@
   const { app }: Props = $props();
 </script>
 
-<Card>
+<Card class="timeline-app bg-white dark:bg-mist-800">
   <img src={app.icon} alt={app.name} class="size-32 object-contain" />
   <h4 class="timeline-title">{app.name}</h4>
   <div class="align-center mt-1 flex flex-row items-center gap-2">
@@ -21,5 +21,5 @@
   <p class="timeline-text mt-1 text-gray-600 dark:text-gray-400">
     {app.description}
   </p>
-  <Button href={app.url} target="_blank" rel="noopener noreferrer">Download</Button>
+  <Button href={app.url} class="mt-auto" target="_blank" rel="noopener noreferrer">Download</Button>
 </Card>
