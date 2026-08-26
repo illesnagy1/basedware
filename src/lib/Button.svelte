@@ -1,25 +1,22 @@
 <script lang="ts">
-    import type { Snippet } from 'svelte';
+  import type { Snippet } from 'svelte';
 
-    let {
-        href,
-        size = 'default',
-        class: className = '',
-        children,
-        ...rest
-    }: {
-        href?: string;
-        size?: 'default' | 'sm';
-        class?: string;
-        children: Snippet;
-        [key: string]: unknown;
-    } = $props();
+  interface ButtonProps {
+    href?: string;
+    size?: 'default' | 'sm';
+    class?: string;
+    children: Snippet;
+    [key: string]: unknown;
+  }
 
-    const base = $derived(size === 'sm' ? 'btn-sm' : 'btn');
+  const { href, size = 'default', class: className = '', children, ...rest }: ButtonProps = $props();
+
+  const base = $derived(size === 'sm' ? 'btn-sm' : 'btn');
 </script>
 
 {#if href}
-    <a {href} class="{base} {className}" {...rest}>{@render children()}</a>
+  <!-- eslint-disable-next-line svelte/no-navigation-without-resolve -- href is caller-supplied and may be external, an anchor, or an internal route -->
+  <a {href} class="{base} {className}" {...rest}>{@render children()}</a>
 {:else}
-    <button type="button" class="{base} {className}" {...rest}>{@render children()}</button>
+  <button type="button" class="{base} {className}" {...rest}>{@render children()}</button>
 {/if}
