@@ -44,13 +44,13 @@ export const actions = {
         return message(form, 'Registered successfully.');
       }
 
-      if (response.status == StatusCodes.NOT_FOUND) {
+      if (response.status === StatusCodes.NOT_FOUND) {
         return message(form, 'The provided token is not valid or expired. Try again.', {
           status: StatusCodes.BAD_REQUEST,
         });
-      } else if (response.status == StatusCodes.CONFLICT) {
+      } else if (response.status === StatusCodes.CONFLICT) {
         return message(form, 'The provided JID is already registered. Try again.', { status: StatusCodes.BAD_REQUEST });
-      } else if (response.status == StatusCodes.INTERNAL_SERVER_ERROR) {
+      } else if (response.status === StatusCodes.INTERNAL_SERVER_ERROR) {
         return message(form, 'An internal server error occurred. Try again later.', {
           status: StatusCodes.INTERNAL_SERVER_ERROR,
         });
